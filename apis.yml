@@ -1,0 +1,142 @@
+name: Workday Security APIs
+description: Collection of Workday Security APIs for managing authentication, authorization, and security configurations
+image: https://www.workday.com/content/dam/web/images/icons/wd-icon.png
+url: https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
+created: 2024-01-15 00:00:00+00:00
+modified: 2024-01-15 00:00:00+00:00
+apis:
+- name: Workday Authentication API
+  description: Manage authentication methods, SSO configuration, and session management
+  image: https://www.workday.com/content/dam/web/images/icons/wd-icon.png
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  baseURL: https://wd2-impl-services1.workday.com/ccx/service/
+  tags:
+  - Security
+  - Authentication
+  - SSO
+  - SAML
+  properties:
+  - type: Documentation
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  - type: OpenAPI
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication_OpenAPI.json
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+  contact:
+  - FN: Workday Support
+    email: support@workday.com
+    url: https://community.workday.com
+- name: Workday Identity Management API
+  description: Manage user identities, roles, and access permissions
+  image: https://www.workday.com/content/dam/web/images/icons/wd-icon.png
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+  baseURL: https://wd2-impl-services1.workday.com/ccx/service/
+  tags:
+  - Security
+  - Identity
+  - Access Management
+  - Roles
+  properties:
+  - type: Documentation
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+  - type: OpenAPI
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management_OpenAPI.json
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+  contact:
+  - FN: Workday Support
+    email: support@workday.com
+    url: https://community.workday.com
+- name: Workday Security Groups API
+  description: Manage security groups, domain policies, and security group memberships
+  image: https://www.workday.com/content/dam/web/images/icons/wd-icon.png
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+  baseURL: https://wd2-impl-services1.workday.com/ccx/service/
+  tags:
+  - Security
+  - Groups
+  - Permissions
+  - Domain Security
+  properties:
+  - type: Documentation
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+  - type: OpenAPI
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups_OpenAPI.json
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+  contact:
+  - FN: Workday Support
+    email: support@workday.com
+    url: https://community.workday.com
+- name: Workday Audit and Compliance API
+  description: Access audit logs, security reports, and compliance data
+  image: https://www.workday.com/content/dam/web/images/icons/wd-icon.png
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+  baseURL: https://wd2-impl-services1.workday.com/ccx/service/
+  tags:
+  - Security
+  - Audit
+  - Compliance
+  - Logging
+  properties:
+  - type: Documentation
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+  - type: OpenAPI
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit_OpenAPI.json
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+  contact:
+  - FN: Workday Support
+    email: support@workday.com
+    url: https://community.workday.com
+- name: Workday Privacy API
+  description: Manage data privacy settings, consent, and data subject requests
+  image: https://www.workday.com/content/dam/web/images/icons/wd-icon.png
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+  baseURL: https://wd2-impl-services1.workday.com/ccx/service/
+  tags:
+  - Security
+  - Privacy
+  - GDPR
+  - Data Protection
+  properties:
+  - type: Documentation
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+  - type: OpenAPI
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy_OpenAPI.json
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+  contact:
+  - FN: Workday Support
+    email: support@workday.com
+    url: https://community.workday.com
+common:
+- type: Portal
+  url: https://community.workday.com
+- type: Getting Started
+  url: https://community.workday.com/articles/1317963
+- type: Authentication Guide
+  url: https://community.workday.com/articles/1311418
+- type: Best Practices
+  url: https://community.workday.com/articles/security-best-practices
+- type: Rate Limits
+  url: https://community.workday.com/articles/api-rate-limits
+- type: Status Page
+  url: https://status.workday.com
+- type: Support
+  url: https://www.workday.com/en-us/customer-experience/support.html
+maintainers:
+- FN: Workday API Team
+  email: api-support@workday.com
+  url: https://community.workday.com
+tags:
+- Security
+- Authentication
+- Identity Management
+- Access Control
+- Compliance
+- Audit
+- Privacy
+- Enterprise
+- SAML
+- SSO
