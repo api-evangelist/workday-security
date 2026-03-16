@@ -1,6 +1,6 @@
 aid: workday-security
 specificationVersion: '0.19'
-name: Workday Security APIs
+name: Workday Security
 description: >-
   Collection of Workday Security APIs for managing authentication, authorization,
   and security configurations including identity management, security groups,
