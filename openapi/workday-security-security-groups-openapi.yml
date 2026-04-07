@@ -28,10 +28,6 @@ servers:
         description: Workday tenant identifier
         default: your-tenant
 tags:
-  - name: Security Groups
-    description: >-
-      Create, retrieve, and manage security groups that control access to
-      Workday domains, business processes, and securable items.
   - name: Domain Security Policies
     description: >-
       Manage domain security policies that define which security groups have
@@ -41,6 +37,10 @@ tags:
     description: >-
       Manage the membership of users and integration system users within
       security groups.
+  - name: Security Groups
+    description: >-
+      Create, retrieve, and manage security groups that control access to
+      Workday domains, business processes, and securable items.
 security:
   - bearerAuth: []
 paths:

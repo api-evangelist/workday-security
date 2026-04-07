@@ -32,14 +32,14 @@ tags:
     description: >-
       Retrieve audit log entries that record system events, configuration
       changes, and administrative actions for compliance monitoring.
-  - name: Security Audit
-    description: >-
-      Access security-specific audit records including permission changes,
-      security group modifications, and access control events.
   - name: Compliance Reports
     description: >-
       Generate and retrieve compliance reports summarizing audit activity,
       policy adherence, and regulatory compliance status.
+  - name: Security Audit
+    description: >-
+      Access security-specific audit records including permission changes,
+      security group modifications, and access control events.
 security:
   - bearerAuth: []
 paths:

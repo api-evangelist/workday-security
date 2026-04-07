@@ -34,6 +34,10 @@ servers:
         description: Workday tenant identifier
         default: your-tenant
 tags:
+  - name: Authentication Configuration
+    description: >-
+      Manage authentication policies and configurations including SSO, SAML,
+      and multi-factor authentication settings.
   - name: OAuth Tokens
     description: >-
       Obtain and manage OAuth 2.0 access tokens for authenticating REST API
@@ -42,10 +46,6 @@ tags:
     description: >-
       Retrieve and manage active authentication sessions including signon
       history and session metadata.
-  - name: Authentication Configuration
-    description: >-
-      Manage authentication policies and configurations including SSO, SAML,
-      and multi-factor authentication settings.
 security:
   - bearerAuth: []
 paths:
