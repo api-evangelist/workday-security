@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Workday Authentication API
+  title: Workday Security Workday Authentication API
   description: >-
     Manage authentication methods, single sign-on configuration, and session
     management within the Workday platform. Supports OAuth 2.0 token-based
@@ -52,7 +52,7 @@ paths:
   /oauth2/{tenant}/token:
     post:
       operationId: requestAccessToken
-      summary: Request an OAuth 2.0 access token
+      summary: Workday Security Request an OAuth 2.0 access token
       description: >-
         Exchange an authorization code or refresh token for a new access token.
         The token endpoint accepts client credentials and either an authorization
@@ -129,7 +129,7 @@ paths:
   /api/v1/{tenant}/sessions:
     get:
       operationId: listActiveSessions
-      summary: List active sessions
+      summary: Workday Security List active sessions
       description: >-
         Retrieve a collection of currently active authentication sessions for the
         tenant. Returns session metadata including signon timestamps, IP
@@ -162,7 +162,7 @@ paths:
   /api/v1/{tenant}/authenticationPolicies:
     get:
       operationId: listAuthenticationPolicies
-      summary: List authentication policies
+      summary: Workday Security List authentication policies
       description: >-
         Retrieve the collection of authentication policies configured for the
         tenant, including SSO settings, multi-factor authentication requirements,

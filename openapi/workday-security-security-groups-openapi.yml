@@ -47,7 +47,7 @@ paths:
   /securityGroups:
     get:
       operationId: listSecurityGroups
-      summary: List security groups
+      summary: Workday Security List security groups
       description: >-
         Retrieve a collection of security groups configured in the Workday
         tenant. Supports filtering by security group type, status, and search
@@ -106,7 +106,7 @@ paths:
   /securityGroups/{securityGroupId}:
     get:
       operationId: getSecurityGroup
-      summary: Get a specific security group
+      summary: Workday Security Get a specific security group
       description: >-
         Retrieve detailed information about a specific security group including
         its type, members, and associated domain security policies.
@@ -135,7 +135,7 @@ paths:
   /securityGroups/{securityGroupId}/members:
     get:
       operationId: listSecurityGroupMembers
-      summary: List members of a security group
+      summary: Workday Security List members of a security group
       description: >-
         Retrieve the collection of users and integration system users that are
         members of the specified security group. Returns member details
@@ -175,7 +175,7 @@ paths:
   /domainSecurityPolicies:
     get:
       operationId: listDomainSecurityPolicies
-      summary: List domain security policies
+      summary: Workday Security List domain security policies
       description: >-
         Retrieve a collection of domain security policies configured in the
         Workday tenant. Domain security policies define which security groups
@@ -219,7 +219,7 @@ paths:
   /domainSecurityPolicies/{policyId}:
     get:
       operationId: getDomainSecurityPolicy
-      summary: Get a specific domain security policy
+      summary: Workday Security Get a specific domain security policy
       description: >-
         Retrieve detailed information about a specific domain security policy
         including the security groups with access and their permission levels.

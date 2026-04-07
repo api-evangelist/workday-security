@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Workday Identity Management API
+  title: Workday Security Workday Identity Management API
   description: >-
     Manage user identities, Workday account signons, and access permissions
     within the Workday platform. Provides operations for tracking authenticated
@@ -57,7 +57,7 @@ paths:
   /accountSignons:
     get:
       operationId: listAccountSignons
-      summary: List Workday account signons
+      summary: Workday Security List Workday account signons
       description: >-
         Retrieve a collection of signon events for valid Workday accounts.
         Returns detailed records of authentication events including the signon
@@ -130,7 +130,7 @@ paths:
   /accountSignons/{signonId}:
     get:
       operationId: getAccountSignon
-      summary: Get a specific account signon
+      summary: Workday Security Get a specific account signon
       description: >-
         Retrieve detailed information about a specific signon event identified
         by its unique signon identifier. Returns the full signon record
@@ -161,7 +161,7 @@ paths:
   /unidentifiedSignons:
     get:
       operationId: listUnidentifiedSignons
-      summary: List unidentified signon attempts
+      summary: Workday Security List unidentified signon attempts
       description: >-
         Retrieve a collection of unidentified signon attempts where the
         provided username does not correspond to a valid Workday account.
@@ -223,7 +223,7 @@ paths:
   /userAccounts:
     get:
       operationId: listUserAccounts
-      summary: List user accounts
+      summary: Workday Security List user accounts
       description: >-
         Retrieve a collection of Workday user accounts including their account
         status, associated worker, and security configuration. Supports
@@ -270,7 +270,7 @@ paths:
   /userAccounts/{accountId}:
     get:
       operationId: getUserAccount
-      summary: Get a specific user account
+      summary: Workday Security Get a specific user account
       description: >-
         Retrieve detailed information about a specific Workday user account
         including account status, associated security groups, and last signon

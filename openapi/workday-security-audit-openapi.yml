@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Workday Audit and Compliance API
+  title: Workday Security Workday Audit and Compliance API
   description: >-
     Access audit logs, security reports, and compliance data within the Workday
     platform. Provides programmatic access to audit trail information for
@@ -46,7 +46,7 @@ paths:
   /auditLogs:
     get:
       operationId: listAuditLogs
-      summary: List audit log entries
+      summary: Workday Security List audit log entries
       description: >-
         Retrieve a collection of audit log entries for the tenant. Audit logs
         record system events, configuration changes, data modifications, and
@@ -119,7 +119,7 @@ paths:
   /auditLogs/{auditLogId}:
     get:
       operationId: getAuditLogEntry
-      summary: Get a specific audit log entry
+      summary: Workday Security Get a specific audit log entry
       description: >-
         Retrieve detailed information about a specific audit log entry including
         the full event context, before and after values for configuration
@@ -149,7 +149,7 @@ paths:
   /securityAudit/permissionChanges:
     get:
       operationId: listPermissionChanges
-      summary: List security permission changes
+      summary: Workday Security List security permission changes
       description: >-
         Retrieve a collection of security permission change records, including
         modifications to security group memberships, domain security policy
@@ -204,7 +204,7 @@ paths:
   /complianceReports:
     get:
       operationId: listComplianceReports
-      summary: List compliance reports
+      summary: Workday Security List compliance reports
       description: >-
         Retrieve a collection of available compliance reports for the tenant.
         Compliance reports summarize audit activity, policy adherence, and
