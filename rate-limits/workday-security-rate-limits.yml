@@ -4,116 +4,38 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Workday Security
 providerId: workday-security
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - Access Control
-  - Audit
-  - Authentication
-  - Compliance
-  - Enterprise
-  - Identity Management
-  - Privacy
-  - SAML
-  - Security
-  - SSO
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Workday Security API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - Security
+  - Authentication
+  - Workday
+description: Workday does not publish a unified, public rate-limit policy for the Authentication,
+  Identity, Security Groups, Audit, Privacy, or User Activity APIs. Documentation lives on
+  community.workday.com behind customer authentication. Throttling is tenant-scoped.
+sources:
+  - https://community.workday.com/api
+  - https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
 responseCodes:
-  throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Workday Authentication API
-      - Workday Identity Management API
-      - Workday Security Groups API
-      - Workday Audit and Compliance API
-      - Workday Privacy API
-      - Workday User Activity Logging API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Workday Authentication API
-      - Workday Identity Management API
-      - Workday Security Groups API
-      - Workday Audit and Compliance API
-      - Workday Privacy API
-      - Workday User Activity Logging API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Workday Authentication API
-      - Workday Identity Management API
-      - Workday Security Groups API
-      - Workday Audit and Compliance API
-      - Workday Privacy API
-      - Workday User Activity Logging API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Workday Authentication API
-      - Workday Identity Management API
-      - Workday Security Groups API
-      - Workday Audit and Compliance API
-      - Workday Privacy API
-      - Workday User Activity Logging API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Workday Authentication API
-      - Workday Identity Management API
-      - Workday Security Groups API
-      - Workday Audit and Compliance API
-      - Workday Privacy API
-      - Workday User Activity Logging API
+  - name: Tenant-scoped throttling (see gated Workday Community documentation)
+    scope: tenant
+    metric: varies
+    limit: see https://community.workday.com/api
+    notes: Workday enforces tenant-level throttling and OAuth token-issuance rate limits; specific
+      values are published only inside the authenticated Workday Community reference.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Documentation gating
+    description: Workday API rate-limit policy is published only on community.workday.com, which
+      requires a customer login. No public per-second or per-minute numbers are available.
+  - name: Backoff
+    description: Standard guidance is exponential backoff with jitter on HTTP 503 and on documented
+      Workday throttling SOAP faults.
+  - name: Token issuance
+    description: OAuth token issuance and SAML assertion exchange have separate, tenant-bound rate
+      limits documented inside the gated Authentication API reference.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
