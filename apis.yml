@@ -165,7 +165,7 @@ apis:
 common:
   - type: Portal
     url: https://community.workday.com
-  - type: Getting Started
+  - type: GettingStarted
     url: https://community.workday.com/articles/1317963
   - type: Authentication Guide
     url: https://community.workday.com/articles/1311418
@@ -177,17 +177,17 @@ common:
     url: https://community.workday.com/api
   - type: Reference
     url: https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
-  - type: Rate Limits
+  - type: RateLimits
     url: https://community.workday.com/articles/api-rate-limits
-  - type: Status
+  - type: StatusPage
     url: https://status.workday.com
   - type: Support
     url: https://www.workday.com/en-us/customer-experience/support.html
   - type: Website
     url: https://www.workday.com
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.workday.com/en-us/legal.html
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.workday.com/en-us/privacy.html
   - type: Security
     url: https://www.workday.com/en-us/why-workday/trust/security.html
@@ -195,9 +195,9 @@ common:
     url: https://www.workday.com/en-us/why-workday/trust/compliance.html
   - type: Blog
     url: https://blog.workday.com/en-us/application-development.html
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/workday
-  - type: Sign Up
+  - type: SignUp
     url: https://resourcecenter.workday.com/
   - type: Login
     url: https://www.myworkday.com
