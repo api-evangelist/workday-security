@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Workday Security Workday Audit and Compliance API — Compliance Reports
+  description: 'Workday Security Workday Audit and Compliance API — Compliance Reports. 1 operations. Lead operation: Workday
+    Security List compliance reports. Self-contained Naftiko capability covering one Workday Security business surface.'
+  tags:
+  - Workday Security
+  - Compliance Reports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WORKDAY_SECURITY_API_KEY: WORKDAY_SECURITY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: audit-compliance-reports
+    baseUri: https://{host}/ccx/api/v1/{tenant}
+    description: Workday Security Workday Audit and Compliance API — Compliance Reports business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: complianceReports
+      path: /complianceReports
+      operations:
+      - name: listcompliancereports
+        method: GET
+        description: Workday Security List compliance reports
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: reportType
+          in: query
+          type: string
+          description: Filter by the type of compliance report
+    authentication:
+      type: bearer
+      token: '{{env.WORKDAY_SECURITY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: audit-compliance-reports-rest
+    port: 8080
+    description: REST adapter for Workday Security Workday Audit and Compliance API — Compliance Reports. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/compliancereports
+      name: compliancereports
+      description: REST surface for complianceReports.
+      operations:
+      - method: GET
+        name: listcompliancereports
+        description: Workday Security List compliance reports
+        call: audit-compliance-reports.listcompliancereports
+        with:
+          reportType: rest.reportType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: audit-compliance-reports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Workday Security Workday Audit and Compliance API — Compliance Reports. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: workday-security-list-compliance-reports
+      description: Workday Security List compliance reports
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: audit-compliance-reports.listcompliancereports
+      with:
+        reportType: tools.reportType
+      outputParameters:
+      - type: object
+        mapping: $.

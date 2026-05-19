@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Workday Security Groups API — Security Group Members
+  description: 'Workday Security Groups API — Security Group Members. 1 operations. Lead operation: Workday Security List
+    members of a security group. Self-contained Naftiko capability covering one Workday Security business surface.'
+  tags:
+  - Workday Security
+  - Security Group Members
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WORKDAY_SECURITY_API_KEY: WORKDAY_SECURITY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: security-groups-security-group-members
+    baseUri: https://{host}/ccx/api/v1/{tenant}
+    description: Workday Security Groups API — Security Group Members business capability. Self-contained, no shared references.
+    resources:
+    - name: securityGroups-securityGroupId-members
+      path: /securityGroups/{securityGroupId}/members
+      operations:
+      - name: listsecuritygroupmembers
+        method: GET
+        description: Workday Security List members of a security group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: securityGroupId
+          in: path
+          type: string
+          description: Unique identifier of the security group
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.WORKDAY_SECURITY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: security-groups-security-group-members-rest
+    port: 8080
+    description: REST adapter for Workday Security Groups API — Security Group Members. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/securitygroups/{securitygroupid}/members
+      name: securitygroups-securitygroupid-members
+      description: REST surface for securityGroups-securityGroupId-members.
+      operations:
+      - method: GET
+        name: listsecuritygroupmembers
+        description: Workday Security List members of a security group
+        call: security-groups-security-group-members.listsecuritygroupmembers
+        with:
+          securityGroupId: rest.securityGroupId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: security-groups-security-group-members-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Workday Security Groups API — Security Group Members. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: workday-security-list-members-security
+      description: Workday Security List members of a security group
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: security-groups-security-group-members.listsecuritygroupmembers
+      with:
+        securityGroupId: tools.securityGroupId
+      outputParameters:
+      - type: object
+        mapping: $.

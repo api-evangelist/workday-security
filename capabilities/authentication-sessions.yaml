@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Workday Security Workday Authentication API — Sessions
+  description: 'Workday Security Workday Authentication API — Sessions. 1 operations. Lead operation: Workday Security List
+    active sessions. Self-contained Naftiko capability covering one Workday Security business surface.'
+  tags:
+  - Workday Security
+  - Sessions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WORKDAY_SECURITY_API_KEY: WORKDAY_SECURITY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: authentication-sessions
+    baseUri: https://{host}/ccx
+    description: Workday Security Workday Authentication API — Sessions business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-tenant-sessions
+      path: /api/v1/{tenant}/sessions
+      operations:
+      - name: listactivesessions
+        method: GET
+        description: Workday Security List active sessions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.WORKDAY_SECURITY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: authentication-sessions-rest
+    port: 8080
+    description: REST adapter for Workday Security Workday Authentication API — Sessions. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/{tenant}/sessions
+      name: api-v1-tenant-sessions
+      description: REST surface for api-v1-tenant-sessions.
+      operations:
+      - method: GET
+        name: listactivesessions
+        description: Workday Security List active sessions
+        call: authentication-sessions.listactivesessions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: authentication-sessions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Workday Security Workday Authentication API — Sessions. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: workday-security-list-active-sessions
+      description: Workday Security List active sessions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: authentication-sessions.listactivesessions
+      outputParameters:
+      - type: object
+        mapping: $.
