@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Error",
+  "title": "Error",
+  "type": "object",
+  "description": "Error response returned when an API request fails due to invalid parameters or business rule violations.",
+  "properties": {
+    "error": {
+      "type": "string",
+      "description": "Error code identifying the type of error"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable description of the error"
+    }
+  }
+}

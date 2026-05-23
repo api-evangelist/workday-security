@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SecurityGroupMember",
+  "title": "SecurityGroupMember",
+  "type": "object",
+  "description": "A member of a security group, which can be a user account or an integration system user that has been assigned to the group.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the membership assignment"
+    },
+    "account": {
+      "$ref": "#/components/schemas/AccountRef"
+    },
+    "assignedOn": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the member was assigned to the security group"
+    },
+    "assignedBy": {
+      "type": "string",
+      "description": "The account that assigned this member to the group"
+    }
+  }
+}

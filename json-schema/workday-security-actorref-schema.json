@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ActorRef",
+  "title": "ActorRef",
+  "type": "object",
+  "description": "Reference to the actor who performed an audited action, which can be a user account or system process.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the actor"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Display name of the actor"
+    },
+    "accountType": {
+      "type": "string",
+      "enum": [
+        "User",
+        "IntegrationSystemUser",
+        "System"
+      ],
+      "description": "Type of account that performed the action"
+    }
+  }
+}

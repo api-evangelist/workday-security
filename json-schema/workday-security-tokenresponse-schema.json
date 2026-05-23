@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TokenResponse",
+  "title": "TokenResponse",
+  "type": "object",
+  "description": "OAuth 2.0 token response containing the access token and associated metadata for authenticating subsequent API requests.",
+  "required": [
+    "access_token",
+    "token_type"
+  ],
+  "properties": {
+    "access_token": {
+      "type": "string",
+      "description": "The bearer access token for authenticating API requests"
+    },
+    "token_type": {
+      "type": "string",
+      "enum": [
+        "Bearer"
+      ],
+      "description": "The type of token issued"
+    },
+    "expires_in": {
+      "type": "integer",
+      "description": "The lifetime of the access token in seconds"
+    },
+    "refresh_token": {
+      "type": "string",
+      "description": "A non-expiring refresh token that can be used to obtain new access tokens without requiring re-authorization."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-delimited list of scopes granted to the access token"
+    }
+  }
+}

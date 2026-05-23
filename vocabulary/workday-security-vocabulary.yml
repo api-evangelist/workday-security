@@ -1,0 +1,13 @@
+name: Workday Security Domain Vocabulary
+provider: Workday Security
+providerId: workday-security
+description: Tag-derived vocabulary for the Workday Security API surface; sourced from openapi/ tags.
+terms:
+- term: Account Signons
+  description: Retrieve and monitor Workday account signon events where the username corresponds to a valid Workday account.
+    Provides detailed signon history including timestamps, IP addresses, and authentication methods.
+- term: Unidentified Signons
+  description: Retrieve and monitor unidentified signon attempts where the provided username does not correspond to a valid
+    Workday account. Used for detecting potential unauthorized access attempts.
+- term: User Accounts
+  description: Manage Workday user accounts including account status, credentials, and associated security configurations.

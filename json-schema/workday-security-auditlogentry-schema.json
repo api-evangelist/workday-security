@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AuditLogEntry",
+  "title": "AuditLogEntry",
+  "type": "object",
+  "description": "An audit log entry recording a system event, configuration change, or administrative action within the Workday tenant. Provides a complete record of the action, its context, and the outcome for compliance and security monitoring.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the audit log entry"
+    },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "Configuration_Change",
+        "Data_Access",
+        "Data_Modification",
+        "Security_Change",
+        "System_Event",
+        "Business_Process"
+      ],
+      "description": "Classification of the audit event"
+    },
+    "eventDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the event occurred"
+    },
+    "actor": {
+      "$ref": "#/components/schemas/ActorRef"
+    },
+    "action": {
+      "type": "string",
+      "description": "The specific action performed such as Create, Update, Delete, or View"
+    },
+    "target": {
+      "$ref": "#/components/schemas/TargetRef"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of the audited event"
+    },
+    "previousValue": {
+      "type": "string",
+      "description": "The previous value before the change for configuration modification events"
+    },
+    "newValue": {
+      "type": "string",
+      "description": "The new value after the change for configuration modification events"
+    },
+    "ipAddress": {
+      "type": "string",
+      "description": "IP address from which the action was performed"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "Session identifier of the actor performing the action"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "Success",
+        "Failure",
+        "Partial"
+      ],
+      "description": "Outcome of the audited action"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkerRef",
+  "title": "WorkerRef",
+  "type": "object",
+  "description": "Reference to a Workday worker associated with a user account",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the worker"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Display name of the worker"
+    },
+    "href": {
+      "type": "string",
+      "format": "uri",
+      "description": "API URL for the worker resource"
+    }
+  }
+}

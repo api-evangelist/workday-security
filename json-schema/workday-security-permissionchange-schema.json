@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PermissionChange",
+  "title": "PermissionChange",
+  "type": "object",
+  "description": "A record of a change to security permissions within the Workday tenant, including security group membership changes, domain security policy modifications, and role assignment updates.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the permission change record"
+    },
+    "changeType": {
+      "type": "string",
+      "enum": [
+        "SecurityGroup_Membership",
+        "Domain_Policy",
+        "Role_Assignment",
+        "Access_Level"
+      ],
+      "description": "Classification of the permission change"
+    },
+    "changeDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the permission change was made"
+    },
+    "changedBy": {
+      "$ref": "#/components/schemas/ActorRef"
+    },
+    "securityGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the affected security group"
+        },
+        "descriptor": {
+          "type": "string",
+          "description": "Display name of the affected security group"
+        }
+      }
+    },
+    "domain": {
+      "type": "string",
+      "description": "The Workday domain affected by the change if applicable"
+    },
+    "previousPermission": {
+      "type": "string",
+      "description": "The permission level before the change"
+    },
+    "newPermission": {
+      "type": "string",
+      "description": "The permission level after the change"
+    },
+    "affectedAccount": {
+      "type": "string",
+      "description": "The user account affected by the permission change if applicable"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of the permission change"
+    }
+  }
+}

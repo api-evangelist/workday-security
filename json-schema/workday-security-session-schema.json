@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Session",
+  "title": "Session",
+  "type": "object",
+  "description": "Represents an active authentication session within the Workday tenant, including details about the signon event, device, and session lifetime.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique session identifier"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "Workday-assigned session identifier"
+    },
+    "systemAccount": {
+      "type": "string",
+      "description": "The system account or username associated with the session"
+    },
+    "signonDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the signon occurred"
+    },
+    "sessionStart": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the session started"
+    },
+    "sessionEnd": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the session ended or will expire"
+    },
+    "ipAddress": {
+      "type": "string",
+      "description": "IP address from which the signon originated"
+    },
+    "authenticationType": {
+      "type": "string",
+      "description": "Authentication method used for the signon such as SAML, password, or OAuth"
+    },
+    "browserType": {
+      "type": "string",
+      "description": "Browser type used for the signon"
+    },
+    "deviceType": {
+      "type": "string",
+      "description": "Device type from which the signon was made"
+    },
+    "deviceIsTrusted": {
+      "type": "boolean",
+      "description": "Whether the device is registered as a trusted device"
+    },
+    "isDeviceManaged": {
+      "type": "boolean",
+      "description": "Whether the device is managed by the organization"
+    },
+    "isFailed": {
+      "type": "boolean",
+      "description": "Whether the signon attempt was unsuccessful"
+    },
+    "multiFactorType": {
+      "type": "string",
+      "description": "Multi-factor authentication type used if applicable"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PolicyPermission",
+  "title": "PolicyPermission",
+  "type": "object",
+  "description": "A permission assignment within a domain security policy that grants a specific security group a level of access to the domain.",
+  "properties": {
+    "securityGroup": {
+      "$ref": "#/components/schemas/SecurityGroupRef"
+    },
+    "accessLevel": {
+      "type": "string",
+      "enum": [
+        "View",
+        "Modify",
+        "Get",
+        "Put"
+      ],
+      "description": "Level of access granted to the security group for this domain"
+    }
+  }
+}

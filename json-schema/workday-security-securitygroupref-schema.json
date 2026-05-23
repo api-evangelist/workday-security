@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SecurityGroupRef",
+  "title": "SecurityGroupRef",
+  "type": "object",
+  "description": "Reference to a security group",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the security group"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Display name of the security group"
+    },
+    "href": {
+      "type": "string",
+      "format": "uri",
+      "description": "API URL for the security group resource"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TargetRef",
+  "title": "TargetRef",
+  "type": "object",
+  "description": "Reference to the target resource or object of an audited action.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the target resource"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Display name of the target resource"
+    },
+    "href": {
+      "type": "string",
+      "format": "uri",
+      "description": "API URL for the target resource"
+    },
+    "resourceType": {
+      "type": "string",
+      "description": "Type of the target resource"
+    }
+  }
+}

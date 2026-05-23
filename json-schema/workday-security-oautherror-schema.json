@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OAuthError",
+  "title": "OAuthError",
+  "type": "object",
+  "description": "Error response returned when an OAuth 2.0 token request fails due to invalid parameters, credentials, or an unsupported grant type.",
+  "properties": {
+    "error": {
+      "type": "string",
+      "enum": [
+        "invalid_request",
+        "invalid_client",
+        "invalid_grant",
+        "unauthorized_client",
+        "unsupported_grant_type",
+        "invalid_scope"
+      ],
+      "description": "OAuth 2.0 error code"
+    },
+    "error_description": {
+      "type": "string",
+      "description": "Human-readable description of the error"
+    }
+  }
+}

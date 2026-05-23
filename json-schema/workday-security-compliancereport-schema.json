@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ComplianceReport",
+  "title": "ComplianceReport",
+  "type": "object",
+  "description": "A compliance report summarizing audit activity, policy adherence, or regulatory compliance status for a defined reporting period.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the compliance report"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Human-readable title of the compliance report"
+    },
+    "reportType": {
+      "type": "string",
+      "enum": [
+        "Security_Audit",
+        "Access_Review",
+        "Configuration_Change",
+        "Data_Access",
+        "Regulatory_Compliance"
+      ],
+      "description": "Classification of the compliance report"
+    },
+    "periodStart": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date of the reporting period"
+    },
+    "periodEnd": {
+      "type": "string",
+      "format": "date",
+      "description": "End date of the reporting period"
+    },
+    "generatedOn": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the report was generated"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "Generated",
+        "Reviewed",
+        "Approved"
+      ],
+      "description": "Current status of the compliance report"
+    },
+    "totalEvents": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of events covered by the report"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Executive summary of the compliance report findings"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UnidentifiedSignon",
+  "title": "UnidentifiedSignon",
+  "type": "object",
+  "description": "An unidentified signon attempt where the provided username does not correspond to any valid Workday account. These records are used for monitoring potential unauthorized access attempts.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the unidentified signon event"
+    },
+    "attemptedUsername": {
+      "type": "string",
+      "description": "The username that was provided during the signon attempt but did not match any valid Workday account"
+    },
+    "signonDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the signon attempt occurred"
+    },
+    "ipAddress": {
+      "type": "string",
+      "description": "IP address from which the signon attempt originated"
+    },
+    "browserType": {
+      "type": "string",
+      "description": "Browser type used for the signon attempt"
+    },
+    "operatingSystem": {
+      "type": "string",
+      "description": "Operating system of the device used for the signon attempt"
+    },
+    "deviceType": {
+      "type": "string",
+      "description": "Type of device used for the signon attempt"
+    }
+  }
+}

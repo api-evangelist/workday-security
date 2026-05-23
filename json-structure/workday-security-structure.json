@@ -1,0 +1,87 @@
+{
+  "provider": "Workday Security",
+  "providerId": "workday-security",
+  "kind": "json-structure",
+  "description": "Structural overview of the Workday Security API surface; extracted from openapi/.",
+  "schemaCount": 5,
+  "operationCount": 5,
+  "schemas": [
+    {
+      "name": "AccountSignon",
+      "type": "object",
+      "propertyCount": 21,
+      "required": []
+    },
+    {
+      "name": "UnidentifiedSignon",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "UserAccount",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "WorkerRef",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Error",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/accountSignons",
+      "operationId": "listAccountSignons",
+      "summary": "Workday Security List Workday account signons",
+      "tags": [
+        "Account Signons"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/accountSignons/{signonId}",
+      "operationId": "getAccountSignon",
+      "summary": "Workday Security Get a specific account signon",
+      "tags": [
+        "Account Signons"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/unidentifiedSignons",
+      "operationId": "listUnidentifiedSignons",
+      "summary": "Workday Security List unidentified signon attempts",
+      "tags": [
+        "Unidentified Signons"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/userAccounts",
+      "operationId": "listUserAccounts",
+      "summary": "Workday Security List user accounts",
+      "tags": [
+        "User Accounts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/userAccounts/{accountId}",
+      "operationId": "getUserAccount",
+      "summary": "Workday Security Get a specific user account",
+      "tags": [
+        "User Accounts"
+      ]
+    }
+  ]
+}

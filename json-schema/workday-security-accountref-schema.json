@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccountRef",
+  "title": "AccountRef",
+  "type": "object",
+  "description": "Reference to a Workday user account",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the user account"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Display name of the user account"
+    },
+    "href": {
+      "type": "string",
+      "format": "uri",
+      "description": "API URL for the user account resource"
+    }
+  }
+}

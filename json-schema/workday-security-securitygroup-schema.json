@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SecurityGroup",
+  "title": "SecurityGroup",
+  "type": "object",
+  "description": "A security group that controls access to securable items within Workday domains and business processes. Security groups can be role-based, user-based, integration system-based, or derived from job or organizational criteria.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the security group"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Human-readable name of the security group"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Integration_System",
+        "Role_Based",
+        "User_Based",
+        "Job_Based",
+        "Unconstrained",
+        "Constrained",
+        "Intersection",
+        "Aggregation"
+      ],
+      "description": "Classification of the security group that determines how membership is derived and managed"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the security group purpose"
+    },
+    "inactive": {
+      "type": "boolean",
+      "description": "Whether the security group is currently inactive"
+    },
+    "memberCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of members currently in the security group"
+    },
+    "domainPolicies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DomainSecurityPolicyRef"
+      },
+      "description": "Domain security policies associated with this security group"
+    },
+    "createdOn": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the security group was created"
+    },
+    "lastModified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the security group was last modified"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccountSignon",
+  "title": "AccountSignon",
+  "type": "object",
+  "description": "A signon event recorded when a user authenticates with a valid Workday account. Contains details about the authentication including timestamps, IP address, device information, and the outcome of the signon attempt.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the signon event"
+    },
+    "systemAccount": {
+      "type": "string",
+      "description": "The Workday system account username used for the signon"
+    },
+    "signonDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the signon occurred"
+    },
+    "ipAddress": {
+      "type": "string",
+      "description": "IP address from which the signon attempt originated"
+    },
+    "authenticationType": {
+      "type": "string",
+      "description": "Authentication method used such as SAML, password, or certificate"
+    },
+    "browserType": {
+      "type": "string",
+      "description": "Browser type used for the signon"
+    },
+    "operatingSystem": {
+      "type": "string",
+      "description": "Operating system of the device used for the signon"
+    },
+    "deviceType": {
+      "type": "string",
+      "description": "Type of device used for the signon"
+    },
+    "deviceIsTrusted": {
+      "type": "boolean",
+      "description": "Whether the device is registered as a trusted device"
+    },
+    "isDeviceManaged": {
+      "type": "boolean",
+      "description": "Whether the device is managed by the organization"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "Session identifier assigned to the signon"
+    },
+    "sessionStart": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the session started"
+    },
+    "sessionEnd": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the session ended"
+    },
+    "successful": {
+      "type": "boolean",
+      "description": "Whether the signon attempt was successful"
+    },
+    "failedSignonReason": {
+      "type": "string",
+      "description": "Reason for the signon failure if the attempt was unsuccessful"
+    },
+    "passwordChanged": {
+      "type": "boolean",
+      "description": "Whether the password was changed during this signon"
+    },
+    "forgottenPasswordResetRequest": {
+      "type": "boolean",
+      "description": "Whether a forgotten password reset was requested"
+    },
+    "multiFactorType": {
+      "type": "string",
+      "description": "Multi-factor authentication type used if applicable"
+    },
+    "samlIdentityProvider": {
+      "type": "string",
+      "description": "SAML identity provider used if the signon was via SSO"
+    },
+    "uiClientType": {
+      "type": "string",
+      "description": "Workday UI client type used for the signon"
+    },
+    "requestOriginator": {
+      "type": "string",
+      "description": "Originator of the signon request such as user-initiated or system-initiated"
+    }
+  }
+}

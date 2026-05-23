@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DomainSecurityPolicyRef",
+  "title": "DomainSecurityPolicyRef",
+  "type": "object",
+  "description": "Reference to a domain security policy",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the domain security policy"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Display name of the domain security policy"
+    },
+    "href": {
+      "type": "string",
+      "format": "uri",
+      "description": "API URL for the domain security policy resource"
+    }
+  }
+}

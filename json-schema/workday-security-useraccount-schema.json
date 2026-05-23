@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserAccount",
+  "title": "UserAccount",
+  "type": "object",
+  "description": "A Workday user account representing a person or system that can authenticate to the Workday platform. Contains account credentials, status, and associated security configuration.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the user account"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Display name of the user account"
+    },
+    "userName": {
+      "type": "string",
+      "description": "The username used for authentication"
+    },
+    "accountStatus": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Disabled",
+        "Locked",
+        "Expired"
+      ],
+      "description": "Current status of the user account"
+    },
+    "accountType": {
+      "type": "string",
+      "enum": [
+        "User",
+        "IntegrationSystemUser"
+      ],
+      "description": "Type of account indicating whether it is a regular user account or an integration system user account"
+    },
+    "lastSignonDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the most recent successful signon"
+    },
+    "accountExpirationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the account is set to expire if an expiration is configured"
+    },
+    "passwordExpirationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the current password will expire"
+    },
+    "mfaEnabled": {
+      "type": "boolean",
+      "description": "Whether multi-factor authentication is enabled for this account"
+    },
+    "worker": {
+      "$ref": "#/components/schemas/WorkerRef"
+    }
+  }
+}

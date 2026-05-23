@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AuthenticationPolicy",
+  "title": "AuthenticationPolicy",
+  "type": "object",
+  "description": "An authentication policy that defines the rules and requirements for authenticating users, including SSO configuration, password policies, and multi-factor authentication requirements.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the authentication policy"
+    },
+    "descriptor": {
+      "type": "string",
+      "description": "Human-readable name of the authentication policy"
+    },
+    "ssoEnabled": {
+      "type": "boolean",
+      "description": "Whether single sign-on is enabled for this policy"
+    },
+    "samlIdentityProvider": {
+      "type": "string",
+      "description": "The SAML identity provider configured for SSO authentication"
+    },
+    "mfaRequired": {
+      "type": "boolean",
+      "description": "Whether multi-factor authentication is required"
+    },
+    "passwordPolicyEnabled": {
+      "type": "boolean",
+      "description": "Whether a custom password policy is enforced"
+    },
+    "sessionTimeoutMinutes": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Session timeout duration in minutes before re-authentication is required"
+    },
+    "allowedAuthenticationTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of authentication methods permitted under this policy"
+    }
+  }
+}
