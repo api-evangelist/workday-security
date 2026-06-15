@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workday Security Groups API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Security Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Security List security groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/securityGroups",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by security group type"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter security groups by name or description"
+              },
+              {
+                "name": "inactive",
+                "value": "",
+                "type": "query",
+                "description": "Include inactive security groups in the results"
+              }
+            ]
+          },
+          "docs": "Retrieve a collection of security groups configured in the Workday tenant. Supports filtering by security group type, status, and search terms. Returns security group metadata including type, membership count, and associated domain security policies."
+        },
+        {
+          "info": {
+            "name": "Workday Security Get a specific security group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/securityGroups/:securityGroupId",
+            "params": [
+              {
+                "name": "securityGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the security group"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific security group including its type, members, and associated domain security policies."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Security Group Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Security List members of a security group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/securityGroups/:securityGroupId/members",
+            "params": [
+              {
+                "name": "securityGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the security group"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve the collection of users and integration system users that are members of the specified security group. Returns member details including account information and assignment metadata."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Domain Security Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Security List domain security policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/domainSecurityPolicies",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              },
+              {
+                "name": "domain",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Workday domain name"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter policies by domain name or description"
+              }
+            ]
+          },
+          "docs": "Retrieve a collection of domain security policies configured in the Workday tenant. Domain security policies define which security groups have access to specific Workday functional domains and what level of access is granted, such as View or Modify permissions."
+        },
+        {
+          "info": {
+            "name": "Workday Security Get a specific domain security policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/domainSecurityPolicies/:policyId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the domain security policy"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific domain security policy including the security groups with access and their permission levels."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
