@@ -203,7 +203,7 @@ common:
     url: https://blog.workday.com/en-us/application-development.html
   - type: GitHubOrganization
     url: https://github.com/workday
-  - type: SignUp
+  - type: Signup
     url: https://resourcecenter.workday.com/
   - type: Login
     url: https://www.myworkday.com
