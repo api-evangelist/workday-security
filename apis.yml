@@ -169,6 +169,10 @@ apis:
         email: support@workday.com
         url: https://community.workday.com
 common:
+  - type: TrustCenter
+    url: security/workday-security-trust-center.yml
+  - type: DomainSecurity
+    url: security/workday-security-domain-security.yml
   - type: Authentication
     url: authentication/workday-security-authentication.yml
   - type: OAuthScopes

@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/workday-security-audit-openapi.yml, openapi/workday-security-authentication-openapi.yml,
+  openapi/workday-security-identity-management-openapi.yml, openapi/workday-security-security-groups-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: OAuth 2.0 bearer token obtained from the Workday token endpoint.
+  sources:
+  - openapi/workday-security-audit-openapi.yml
+  - openapi/workday-security-authentication-openapi.yml
+  - openapi/workday-security-identity-management-openapi.yml
+  - openapi/workday-security-security-groups-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://{host}/authorize
+    tokenUrl: https://{host}/ccx/oauth2/{tenant}/token
+    scopes: 3
+  description: OAuth 2.0 authorization code flow for obtaining access tokens to Workday REST
+    APIs.
+  sources:
+  - openapi/workday-security-authentication-openapi.yml
