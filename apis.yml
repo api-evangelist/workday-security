@@ -169,6 +169,10 @@ apis:
         email: support@workday.com
         url: https://community.workday.com
 common:
+  - type: Authentication
+    url: authentication/workday-security-authentication.yml
+  - type: OAuthScopes
+    url: scopes/workday-security-scopes.yml
   - type: Portal
     url: https://community.workday.com
   - type: GettingStarted

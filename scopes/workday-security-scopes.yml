@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/workday-security-authentication-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/workday-security-authentication-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://{host}/authorize
+    tokenUrl: https://{host}/ccx/oauth2/{tenant}/token
+  description: OAuth 2.0 authorization code flow for obtaining access tokens to Workday REST
+    APIs.
+scopes:
+- scope: Integration
+  description: Access to integration resources
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/workday-security-authentication-openapi.yml
+- scope: System
+  description: Access to system-level resources
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/workday-security-authentication-openapi.yml
+- scope: Tenant_Non-Configurable
+  description: Access to tenant non-configurable resources
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/workday-security-authentication-openapi.yml
