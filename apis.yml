@@ -169,6 +169,8 @@ apis:
         email: support@workday.com
         url: https://community.workday.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/workday-security-agentic-access.yml
   - type: TrustCenter
     url: security/workday-security-trust-center.yml
   - type: DomainSecurity
