@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Workday Security Workday Audit and Compliance Account Signons OAuth Tokens API
+  description: Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.
+  version: v1
+  contact:
+    name: Workday Support
+    url: https://community.workday.com
+    email: support@workday.com
+  termsOfService: https://www.workday.com/en-us/legal.html
+servers:
+- url: https://{host}/ccx/api/v1/{tenant}
+  description: Workday REST API Server
+  variables:
+    host:
+      description: Workday host for your tenant environment
+      default: wd2-impl-services1.workday.com
+    tenant:
+      description: Workday tenant identifier
+      default: your-tenant
+security:
+- bearerAuth: []
+tags:
+- name: OAuth Tokens
+  description: Obtain and manage OAuth 2.0 access tokens for authenticating REST API requests to Workday services.
+paths:
+  /oauth2/{tenant}/token:
+    post:
+      operationId: requestAccessToken
+      summary: Workday Security Request an OAuth 2.0 access token
+      description: Exchange an authorization code or refresh token for a new access token. The token endpoint accepts client credentials and either an authorization code or refresh token to issue a new bearer token for authenticating subsequent REST API requests.
+      tags:
+      - OAuth Tokens
+      security: []
+      parameters:
+      - $ref: '#/components/parameters/tenant'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - authorization_code
+                  - refresh_token
+                  description: The OAuth 2.0 grant type. Use authorization_code for initial token requests and refresh_token to renew expired tokens.
+                client_id:
+                  type: string
+                  description: The client identifier issued during API client registration in Workday.
+                client_secret:
+                  type: string
+                  description: The client secret issued during API client registration.
+                code:
+                  type: string
+                  description: The authorization code received from the authorization endpoint. Required when grant_type is authorization_code.
+                redirect_uri:
+                  type: string
+                  format: uri
+                  description: The redirect URI registered with the API client. Required when grant_type is authorization_code.
+                refresh_token:
+                  type: string
+                  description: The refresh token issued during a previous token request. Required when grant_type is refresh_token.
+      responses:
+        '200':
+          description: Access token issued successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Invalid request parameters or unsupported grant type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthError'
+        '401':
+          description: Invalid client credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthError'
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      description: OAuth 2.0 token response containing the access token and associated metadata for authenticating subsequent API requests.
+      required:
+      - access_token
+      - token_type
+      properties:
+        access_token:
+          type: string
+          description: The bearer access token for authenticating API requests
+        token_type:
+          type: string
+          enum:
+          - Bearer
+          description: The type of token issued
+        expires_in:
+          type: integer
+          description: The lifetime of the access token in seconds
+        refresh_token:
+          type: string
+          description: A non-expiring refresh token that can be used to obtain new access tokens without requiring re-authorization.
+        scope:
+          type: string
+          description: Space-delimited list of scopes granted to the access token
+    OAuthError:
+      type: object
+      description: Error response returned when an OAuth 2.0 token request fails due to invalid parameters, credentials, or an unsupported grant type.
+      properties:
+        error:
+          type: string
+          enum:
+          - invalid_request
+          - invalid_client
+          - invalid_grant
+          - unauthorized_client
+          - unsupported_grant_type
+          - invalid_scope
+          description: OAuth 2.0 error code
+        error_description:
+          type: string
+          description: Human-readable description of the error
+  parameters:
+    tenant:
+      name: tenant
+      in: path
+      required: true
+      description: Workday tenant identifier
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token obtained from the Workday token endpoint.
+externalDocs:
+  description: Workday Audit and Compliance API Documentation
+  url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
