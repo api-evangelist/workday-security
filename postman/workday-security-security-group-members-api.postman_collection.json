@@ -1,0 +1,335 @@
+{
+  "info": {
+    "_postman_id": "480872cf-f744-4e02-afa8-e634951c8b1d",
+    "name": "Workday Security Workday Audit and Compliance Account Signons Security Group Members API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:39.000Z",
+    "updatedAt": "2026-07-28T03:32:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-480872cf-f744-4e02-afa8-e634951c8b1d"
+  },
+  "item": [
+    {
+      "name": "securityGroups",
+      "item": [
+        {
+          "name": "{securityGroupId}",
+          "item": [
+            {
+              "name": "members",
+              "item": [
+                {
+                  "name": "Workday Security List members of a security group",
+                  "id": "9db2a359-16b2-42e1-a981-2619c5b9126d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/securityGroups/:securityGroupId/members?limit=20&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "securityGroups",
+                        ":securityGroupId",
+                        "members"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination",
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "bdc691b2-ea14-47e0-b9db-d712d21e7fed",
+                          "key": "securityGroupId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the security group"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the collection of users and integration system users that are members of the specified security group. Returns member details including account information and assignment metadata."
+                  },
+                  "response": [
+                    {
+                      "id": "e7dc5814-5eef-42be-b1b8-0c936369fe0b",
+                      "name": "Collection of security group members",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/securityGroups/:securityGroupId/members?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "securityGroups",
+                            ":securityGroupId",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "securityGroupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"account\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"href\": \"<uri>\"\n      },\n      \"assignedOn\": \"<dateTime>\",\n      \"assignedBy\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"account\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"href\": \"<uri>\"\n      },\n      \"assignedOn\": \"<dateTime>\",\n      \"assignedBy\": \"<string>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T03:32:40.000Z",
+                      "updatedAt": "2026-07-28T03:32:40.000Z",
+                      "uid": "35240-e7dc5814-5eef-42be-b1b8-0c936369fe0b"
+                    },
+                    {
+                      "id": "876c2fc4-8bfd-4d25-b5bb-0f714de135cf",
+                      "name": "Unauthorized - invalid or expired access token",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/securityGroups/:securityGroupId/members?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "securityGroups",
+                            ":securityGroupId",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "securityGroupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:32:40.000Z",
+                      "updatedAt": "2026-07-28T03:32:40.000Z",
+                      "uid": "35240-876c2fc4-8bfd-4d25-b5bb-0f714de135cf"
+                    },
+                    {
+                      "id": "3d795c0b-0683-48ad-98bd-b754b2626ec8",
+                      "name": "Forbidden - insufficient permissions",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/securityGroups/:securityGroupId/members?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "securityGroups",
+                            ":securityGroupId",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "securityGroupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:32:40.000Z",
+                      "updatedAt": "2026-07-28T03:32:40.000Z",
+                      "uid": "35240-3d795c0b-0683-48ad-98bd-b754b2626ec8"
+                    },
+                    {
+                      "id": "daade1d7-ee63-4e53-94df-dec67b5bda2d",
+                      "name": "Security group not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/securityGroups/:securityGroupId/members?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "securityGroups",
+                            ":securityGroupId",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "securityGroupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:32:40.000Z",
+                      "updatedAt": "2026-07-28T03:32:40.000Z",
+                      "uid": "35240-daade1d7-ee63-4e53-94df-dec67b5bda2d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:32:40.000Z",
+                  "updatedAt": "2026-07-28T03:32:40.000Z",
+                  "uid": "35240-9db2a359-16b2-42e1-a981-2619c5b9126d"
+                }
+              ],
+              "id": "621561b3-21b2-47bf-9b51-7a06e58bcf32",
+              "createdAt": "2026-07-28T03:32:39.000Z",
+              "updatedAt": "2026-07-28T03:32:39.000Z",
+              "uid": "35240-621561b3-21b2-47bf-9b51-7a06e58bcf32"
+            }
+          ],
+          "id": "45d8cfeb-5048-4725-9ab0-a6c5991d03b1",
+          "createdAt": "2026-07-28T03:32:39.000Z",
+          "updatedAt": "2026-07-28T03:32:39.000Z",
+          "uid": "35240-45d8cfeb-5048-4725-9ab0-a6c5991d03b1"
+        }
+      ],
+      "id": "1ff7c197-d9c2-480a-8218-9b00f031f9f2",
+      "createdAt": "2026-07-28T03:32:39.000Z",
+      "updatedAt": "2026-07-28T03:32:39.000Z",
+      "uid": "35240-1ff7c197-d9c2-480a-8218-9b00f031f9f2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

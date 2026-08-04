@@ -1,0 +1,602 @@
+{
+  "info": {
+    "_postman_id": "3107cb97-c511-4736-b0b0-e719dd1d5f21",
+    "name": "Workday Security Workday Audit and Compliance Account Signons API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:14.000Z",
+    "updatedAt": "2026-07-28T03:32:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3107cb97-c511-4736-b0b0-e719dd1d5f21"
+  },
+  "item": [
+    {
+      "name": "accountSignons",
+      "item": [
+        {
+          "name": "{signonId}",
+          "item": [
+            {
+              "name": "Workday Security Get a specific account signon",
+              "id": "0705890b-9ee3-4c0b-b28b-4bdafa8f3771",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accountSignons/:signonId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accountSignons",
+                    ":signonId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c325494e-cccb-474a-af90-851807c82ce0",
+                      "key": "signonId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the signon event"
+                    }
+                  ]
+                },
+                "description": "Retrieve detailed information about a specific signon event identified by its unique signon identifier. Returns the full signon record including timestamps, IP address, device information, and authentication method."
+              },
+              "response": [
+                {
+                  "id": "d0fabe55-61db-46da-9689-57303aa8313e",
+                  "name": "Signon event details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accountSignons/:signonId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accountSignons",
+                        ":signonId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "signonId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"systemAccount\": \"<string>\",\n  \"signonDateTime\": \"<dateTime>\",\n  \"ipAddress\": \"<string>\",\n  \"authenticationType\": \"<string>\",\n  \"browserType\": \"<string>\",\n  \"operatingSystem\": \"<string>\",\n  \"deviceType\": \"<string>\",\n  \"deviceIsTrusted\": \"<boolean>\",\n  \"isDeviceManaged\": \"<boolean>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<dateTime>\",\n  \"sessionEnd\": \"<dateTime>\",\n  \"successful\": \"<boolean>\",\n  \"failedSignonReason\": \"<string>\",\n  \"passwordChanged\": \"<boolean>\",\n  \"forgottenPasswordResetRequest\": \"<boolean>\",\n  \"multiFactorType\": \"<string>\",\n  \"samlIdentityProvider\": \"<string>\",\n  \"uiClientType\": \"<string>\",\n  \"requestOriginator\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:32:15.000Z",
+                  "updatedAt": "2026-07-28T03:32:15.000Z",
+                  "uid": "35240-d0fabe55-61db-46da-9689-57303aa8313e"
+                },
+                {
+                  "id": "fa99a0b5-81f1-452a-87ad-e264f23d122c",
+                  "name": "Unauthorized - invalid or expired access token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accountSignons/:signonId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accountSignons",
+                        ":signonId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "signonId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:15.000Z",
+                  "updatedAt": "2026-07-28T03:32:15.000Z",
+                  "uid": "35240-fa99a0b5-81f1-452a-87ad-e264f23d122c"
+                },
+                {
+                  "id": "da9b19a0-b34c-4257-9a4a-33df9eead8d6",
+                  "name": "Forbidden - insufficient permissions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accountSignons/:signonId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accountSignons",
+                        ":signonId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "signonId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:15.000Z",
+                  "updatedAt": "2026-07-28T03:32:15.000Z",
+                  "uid": "35240-da9b19a0-b34c-4257-9a4a-33df9eead8d6"
+                },
+                {
+                  "id": "02cf8810-bdd9-41d8-b0f6-e596183308dd",
+                  "name": "Signon event not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accountSignons/:signonId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accountSignons",
+                        ":signonId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "signonId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:15.000Z",
+                  "updatedAt": "2026-07-28T03:32:15.000Z",
+                  "uid": "35240-02cf8810-bdd9-41d8-b0f6-e596183308dd"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:15.000Z",
+              "updatedAt": "2026-07-28T03:32:15.000Z",
+              "uid": "35240-0705890b-9ee3-4c0b-b28b-4bdafa8f3771"
+            }
+          ],
+          "id": "c3ce9854-432d-4e8b-b51e-715c69aa2140",
+          "createdAt": "2026-07-28T03:32:15.000Z",
+          "updatedAt": "2026-07-28T03:32:15.000Z",
+          "uid": "35240-c3ce9854-432d-4e8b-b51e-715c69aa2140"
+        },
+        {
+          "name": "Workday Security List Workday account signons",
+          "id": "f1041294-dbee-437d-aa24-ec1a5e827be0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accountSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&systemAccount=<string>&successful=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accountSignons"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "(Required) Start of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                  "key": "fromDateTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) End of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                  "key": "toDateTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filter signons by the system account username",
+                  "key": "systemAccount",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by signon success status. Set to true for successful signons only or false for failed signons only.",
+                  "key": "successful",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of signon events for valid Workday accounts. Returns detailed records of authentication events including the signon timestamp, IP address, authentication type, and the associated Workday account. The time range specified in the request criteria must be less than 24 hours. This operation excludes signon attempts where an unidentified or invalid username was provided."
+          },
+          "response": [
+            {
+              "id": "0d8d31bb-89b1-4aad-b098-1cbda697831e",
+              "name": "Collection of account signon events",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accountSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&systemAccount=<string>&successful=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accountSignons"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "(Required) Start of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter signons by the system account username",
+                      "key": "systemAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by signon success status. Set to true for successful signons only or false for failed signons only.",
+                      "key": "successful",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"systemAccount\": \"<string>\",\n      \"signonDateTime\": \"<dateTime>\",\n      \"ipAddress\": \"<string>\",\n      \"authenticationType\": \"<string>\",\n      \"browserType\": \"<string>\",\n      \"operatingSystem\": \"<string>\",\n      \"deviceType\": \"<string>\",\n      \"deviceIsTrusted\": \"<boolean>\",\n      \"isDeviceManaged\": \"<boolean>\",\n      \"sessionId\": \"<string>\",\n      \"sessionStart\": \"<dateTime>\",\n      \"sessionEnd\": \"<dateTime>\",\n      \"successful\": \"<boolean>\",\n      \"failedSignonReason\": \"<string>\",\n      \"passwordChanged\": \"<boolean>\",\n      \"forgottenPasswordResetRequest\": \"<boolean>\",\n      \"multiFactorType\": \"<string>\",\n      \"samlIdentityProvider\": \"<string>\",\n      \"uiClientType\": \"<string>\",\n      \"requestOriginator\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"systemAccount\": \"<string>\",\n      \"signonDateTime\": \"<dateTime>\",\n      \"ipAddress\": \"<string>\",\n      \"authenticationType\": \"<string>\",\n      \"browserType\": \"<string>\",\n      \"operatingSystem\": \"<string>\",\n      \"deviceType\": \"<string>\",\n      \"deviceIsTrusted\": \"<boolean>\",\n      \"isDeviceManaged\": \"<boolean>\",\n      \"sessionId\": \"<string>\",\n      \"sessionStart\": \"<dateTime>\",\n      \"sessionEnd\": \"<dateTime>\",\n      \"successful\": \"<boolean>\",\n      \"failedSignonReason\": \"<string>\",\n      \"passwordChanged\": \"<boolean>\",\n      \"forgottenPasswordResetRequest\": \"<boolean>\",\n      \"multiFactorType\": \"<string>\",\n      \"samlIdentityProvider\": \"<string>\",\n      \"uiClientType\": \"<string>\",\n      \"requestOriginator\": \"<string>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T03:32:15.000Z",
+              "updatedAt": "2026-07-28T03:32:15.000Z",
+              "uid": "35240-0d8d31bb-89b1-4aad-b098-1cbda697831e"
+            },
+            {
+              "id": "a4f5b0a2-5fc4-44f5-8a08-0fc00052d976",
+              "name": "Invalid request. The time range exceeds 24 hours or required parameters are missing.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accountSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&systemAccount=<string>&successful=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accountSignons"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "(Required) Start of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter signons by the system account username",
+                      "key": "systemAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by signon success status. Set to true for successful signons only or false for failed signons only.",
+                      "key": "successful",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:32:15.000Z",
+              "updatedAt": "2026-07-28T03:32:15.000Z",
+              "uid": "35240-a4f5b0a2-5fc4-44f5-8a08-0fc00052d976"
+            },
+            {
+              "id": "ac434601-8e5c-4913-b90e-4ec4043ae249",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accountSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&systemAccount=<string>&successful=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accountSignons"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "(Required) Start of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter signons by the system account username",
+                      "key": "systemAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by signon success status. Set to true for successful signons only or false for failed signons only.",
+                      "key": "successful",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:15.000Z",
+              "updatedAt": "2026-07-28T03:32:15.000Z",
+              "uid": "35240-ac434601-8e5c-4913-b90e-4ec4043ae249"
+            },
+            {
+              "id": "631a19dd-7375-4ba3-84df-8add7c6989b5",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accountSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&systemAccount=<string>&successful=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accountSignons"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "(Required) Start of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter signons by the system account username",
+                      "key": "systemAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by signon success status. Set to true for successful signons only or false for failed signons only.",
+                      "key": "successful",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:15.000Z",
+              "updatedAt": "2026-07-28T03:32:15.000Z",
+              "uid": "35240-631a19dd-7375-4ba3-84df-8add7c6989b5"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:15.000Z",
+          "updatedAt": "2026-07-28T03:32:15.000Z",
+          "uid": "35240-f1041294-dbee-437d-aa24-ec1a5e827be0"
+        }
+      ],
+      "id": "d1712489-e92f-493b-979e-d7c21438d98d",
+      "createdAt": "2026-07-28T03:32:15.000Z",
+      "updatedAt": "2026-07-28T03:32:15.000Z",
+      "uid": "35240-d1712489-e92f-493b-979e-d7c21438d98d"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

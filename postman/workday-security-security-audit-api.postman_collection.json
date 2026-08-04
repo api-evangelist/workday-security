@@ -1,0 +1,307 @@
+{
+  "info": {
+    "_postman_id": "be31874f-f562-4243-abc8-31cf6ffba73b",
+    "name": "Workday Security Workday Audit and Compliance Account Signons Security Audit API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:38.000Z",
+    "updatedAt": "2026-07-28T03:32:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-be31874f-f562-4243-abc8-31cf6ffba73b"
+  },
+  "item": [
+    {
+      "name": "securityAudit",
+      "item": [
+        {
+          "name": "permissionChanges",
+          "item": [
+            {
+              "name": "Workday Security List security permission changes",
+              "id": "33bcd76d-f070-49a1-bb33-12d3e784f08a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/securityAudit/permissionChanges?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&changeType=Role_Assignment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "securityAudit",
+                    "permissionChanges"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Start of the date range for filtering permission changes",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End of the date range for filtering permission changes",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter by the type of permission change",
+                      "key": "changeType",
+                      "value": "Role_Assignment"
+                    }
+                  ]
+                },
+                "description": "Retrieve a collection of security permission change records, including modifications to security group memberships, domain security policy changes, and access level modifications. Used for monitoring and auditing changes to the security posture of the tenant."
+              },
+              "response": [
+                {
+                  "id": "d3875853-029c-447c-9c09-c07ec0dbd1cc",
+                  "name": "Collection of permission change records",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/securityAudit/permissionChanges?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&changeType=Role_Assignment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "securityAudit",
+                        "permissionChanges"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Start of the date range for filtering permission changes",
+                          "key": "fromDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End of the date range for filtering permission changes",
+                          "key": "toDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter by the type of permission change",
+                          "key": "changeType",
+                          "value": "Role_Assignment"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"changeType\": \"SecurityGroup_Membership\",\n      \"changeDateTime\": \"<dateTime>\",\n      \"changedBy\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"accountType\": \"User\"\n      },\n      \"securityGroup\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\"\n      },\n      \"domain\": \"<string>\",\n      \"previousPermission\": \"<string>\",\n      \"newPermission\": \"<string>\",\n      \"affectedAccount\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"changeType\": \"Role_Assignment\",\n      \"changeDateTime\": \"<dateTime>\",\n      \"changedBy\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"accountType\": \"User\"\n      },\n      \"securityGroup\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\"\n      },\n      \"domain\": \"<string>\",\n      \"previousPermission\": \"<string>\",\n      \"newPermission\": \"<string>\",\n      \"affectedAccount\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T03:32:39.000Z",
+                  "updatedAt": "2026-07-28T03:32:39.000Z",
+                  "uid": "35240-d3875853-029c-447c-9c09-c07ec0dbd1cc"
+                },
+                {
+                  "id": "b8ef2b89-695e-44f2-8ca8-53b87a822fdb",
+                  "name": "Unauthorized - invalid or expired access token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/securityAudit/permissionChanges?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&changeType=Role_Assignment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "securityAudit",
+                        "permissionChanges"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Start of the date range for filtering permission changes",
+                          "key": "fromDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End of the date range for filtering permission changes",
+                          "key": "toDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter by the type of permission change",
+                          "key": "changeType",
+                          "value": "Role_Assignment"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:39.000Z",
+                  "updatedAt": "2026-07-28T03:32:39.000Z",
+                  "uid": "35240-b8ef2b89-695e-44f2-8ca8-53b87a822fdb"
+                },
+                {
+                  "id": "d8ac3c49-298f-4b88-bb36-103115989de6",
+                  "name": "Forbidden - insufficient permissions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/securityAudit/permissionChanges?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&changeType=Role_Assignment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "securityAudit",
+                        "permissionChanges"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Start of the date range for filtering permission changes",
+                          "key": "fromDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End of the date range for filtering permission changes",
+                          "key": "toDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter by the type of permission change",
+                          "key": "changeType",
+                          "value": "Role_Assignment"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:39.000Z",
+                  "updatedAt": "2026-07-28T03:32:39.000Z",
+                  "uid": "35240-d8ac3c49-298f-4b88-bb36-103115989de6"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:39.000Z",
+              "updatedAt": "2026-07-28T03:32:39.000Z",
+              "uid": "35240-33bcd76d-f070-49a1-bb33-12d3e784f08a"
+            }
+          ],
+          "id": "42dbc07e-91f0-41af-8262-2039f793082a",
+          "createdAt": "2026-07-28T03:32:39.000Z",
+          "updatedAt": "2026-07-28T03:32:39.000Z",
+          "uid": "35240-42dbc07e-91f0-41af-8262-2039f793082a"
+        }
+      ],
+      "id": "e5e8732f-c89f-4791-9c06-5e1ee7747e79",
+      "createdAt": "2026-07-28T03:32:39.000Z",
+      "updatedAt": "2026-07-28T03:32:39.000Z",
+      "uid": "35240-e5e8732f-c89f-4791-9c06-5e1ee7747e79"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

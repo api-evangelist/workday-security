@@ -1,0 +1,338 @@
+{
+  "info": {
+    "_postman_id": "fb552666-dbb5-48ba-a5c9-18e4bfc425c4",
+    "name": "Workday Security Workday Audit and Compliance Account Signons Unidentified Signons API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:48.000Z",
+    "updatedAt": "2026-07-28T03:32:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fb552666-dbb5-48ba-a5c9-18e4bfc425c4"
+  },
+  "item": [
+    {
+      "name": "unidentifiedSignons",
+      "item": [
+        {
+          "name": "Workday Security List unidentified signon attempts",
+          "id": "9003ee4b-9331-405c-8e7f-e483014234d5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/unidentifiedSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "unidentifiedSignons"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "(Required) Start of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                  "key": "fromDateTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) End of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                  "key": "toDateTime",
+                  "value": "<dateTime>"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of unidentified signon attempts where the provided username does not correspond to a valid Workday account. Used for detecting potential unauthorized access attempts and monitoring security threats. The time range specified in the request criteria must be less than 24 hours."
+          },
+          "response": [
+            {
+              "id": "c48d6545-abb8-4633-a339-b51b023bbaa3",
+              "name": "Collection of unidentified signon attempts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/unidentifiedSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "unidentifiedSignons"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "(Required) Start of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"attemptedUsername\": \"<string>\",\n      \"signonDateTime\": \"<dateTime>\",\n      \"ipAddress\": \"<string>\",\n      \"browserType\": \"<string>\",\n      \"operatingSystem\": \"<string>\",\n      \"deviceType\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"attemptedUsername\": \"<string>\",\n      \"signonDateTime\": \"<dateTime>\",\n      \"ipAddress\": \"<string>\",\n      \"browserType\": \"<string>\",\n      \"operatingSystem\": \"<string>\",\n      \"deviceType\": \"<string>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T03:32:48.000Z",
+              "updatedAt": "2026-07-28T03:32:48.000Z",
+              "uid": "35240-c48d6545-abb8-4633-a339-b51b023bbaa3"
+            },
+            {
+              "id": "2eed04f1-cd3d-40c4-b67a-f2c10467eeec",
+              "name": "Invalid request. The time range exceeds 24 hours or required parameters are missing.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/unidentifiedSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "unidentifiedSignons"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "(Required) Start of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:32:48.000Z",
+              "updatedAt": "2026-07-28T03:32:48.000Z",
+              "uid": "35240-2eed04f1-cd3d-40c4-b67a-f2c10467eeec"
+            },
+            {
+              "id": "3331a2bb-af11-408b-bc2c-7119e9dfceda",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/unidentifiedSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "unidentifiedSignons"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "(Required) Start of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:48.000Z",
+              "updatedAt": "2026-07-28T03:32:48.000Z",
+              "uid": "35240-3331a2bb-af11-408b-bc2c-7119e9dfceda"
+            },
+            {
+              "id": "2b49255e-21ba-4ede-b063-305a4a533957",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/unidentifiedSignons?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "unidentifiedSignons"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "(Required) Start of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of the time range for retrieving unidentified signons. The range between fromDateTime and toDateTime must be less than 24 hours.",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:48.000Z",
+              "updatedAt": "2026-07-28T03:32:48.000Z",
+              "uid": "35240-2b49255e-21ba-4ede-b063-305a4a533957"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:48.000Z",
+          "updatedAt": "2026-07-28T03:32:48.000Z",
+          "uid": "35240-9003ee4b-9331-405c-8e7f-e483014234d5"
+        }
+      ],
+      "id": "43289ef8-8d7d-4758-9ebf-8e30d854a73a",
+      "createdAt": "2026-07-28T03:32:48.000Z",
+      "updatedAt": "2026-07-28T03:32:48.000Z",
+      "uid": "35240-43289ef8-8d7d-4758-9ebf-8e30d854a73a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

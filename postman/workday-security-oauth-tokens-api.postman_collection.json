@@ -1,0 +1,409 @@
+{
+  "info": {
+    "_postman_id": "0bb03274-a150-4700-b7ff-cee6709664f1",
+    "name": "Workday Security Workday Audit and Compliance Account Signons OAuth Tokens API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:37.000Z",
+    "updatedAt": "2026-07-28T03:32:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0bb03274-a150-4700-b7ff-cee6709664f1"
+  },
+  "item": [
+    {
+      "name": "oauth2",
+      "item": [
+        {
+          "name": "{tenant}",
+          "item": [
+            {
+              "name": "token",
+              "item": [
+                {
+                  "name": "Workday Security Request an OAuth 2.0 access token",
+                  "id": "039a70d3-f5b1-4b1d-a6f6-eeb4abd0f3f0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The OAuth 2.0 grant type. Use authorization_code for initial token requests and refresh_token to renew expired tokens.",
+                          "key": "grant_type",
+                          "value": "refresh_token"
+                        },
+                        {
+                          "description": "(Required) The client identifier issued during API client registration in Workday.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The client secret issued during API client registration.",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The authorization code received from the authorization endpoint. Required when grant_type is authorization_code.",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The redirect URI registered with the API client. Required when grant_type is authorization_code.",
+                          "key": "redirect_uri",
+                          "value": "<uri>"
+                        },
+                        {
+                          "description": "The refresh token issued during a previous token request. Required when grant_type is refresh_token.",
+                          "key": "refresh_token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth2/:tenant/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth2",
+                        ":tenant",
+                        "token"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a747cff3-8763-46e7-9cfc-f2c2ec17b5d1",
+                          "key": "tenant",
+                          "value": "<string>",
+                          "description": "(Required) Workday tenant identifier"
+                        }
+                      ]
+                    },
+                    "description": "Exchange an authorization code or refresh token for a new access token. The token endpoint accepts client credentials and either an authorization code or refresh token to issue a new bearer token for authenticating subsequent REST API requests."
+                  },
+                  "response": [
+                    {
+                      "id": "0f5906ef-659f-4e73-86ca-0d2f68bcbcb9",
+                      "name": "Access token issued successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) The OAuth 2.0 grant type. Use authorization_code for initial token requests and refresh_token to renew expired tokens.",
+                              "key": "grant_type",
+                              "value": "refresh_token"
+                            },
+                            {
+                              "description": "(Required) The client identifier issued during API client registration in Workday.",
+                              "key": "client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The client secret issued during API client registration.",
+                              "key": "client_secret",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The authorization code received from the authorization endpoint. Required when grant_type is authorization_code.",
+                              "key": "code",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The redirect URI registered with the API client. Required when grant_type is authorization_code.",
+                              "key": "redirect_uri",
+                              "value": "<uri>"
+                            },
+                            {
+                              "description": "The refresh token issued during a previous token request. Required when grant_type is refresh_token.",
+                              "key": "refresh_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/oauth2/:tenant/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oauth2",
+                            ":tenant",
+                            "token"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tenant"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"access_token\": \"<string>\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": \"<integer>\",\n  \"refresh_token\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:32:38.000Z",
+                      "updatedAt": "2026-07-28T03:32:38.000Z",
+                      "uid": "35240-0f5906ef-659f-4e73-86ca-0d2f68bcbcb9"
+                    },
+                    {
+                      "id": "67d0f3cb-620f-4f9c-95f1-00c7d1723b68",
+                      "name": "Invalid request parameters or unsupported grant type",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) The OAuth 2.0 grant type. Use authorization_code for initial token requests and refresh_token to renew expired tokens.",
+                              "key": "grant_type",
+                              "value": "refresh_token"
+                            },
+                            {
+                              "description": "(Required) The client identifier issued during API client registration in Workday.",
+                              "key": "client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The client secret issued during API client registration.",
+                              "key": "client_secret",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The authorization code received from the authorization endpoint. Required when grant_type is authorization_code.",
+                              "key": "code",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The redirect URI registered with the API client. Required when grant_type is authorization_code.",
+                              "key": "redirect_uri",
+                              "value": "<uri>"
+                            },
+                            {
+                              "description": "The refresh token issued during a previous token request. Required when grant_type is refresh_token.",
+                              "key": "refresh_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/oauth2/:tenant/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oauth2",
+                            ":tenant",
+                            "token"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tenant"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"unauthorized_client\",\n  \"error_description\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:32:38.000Z",
+                      "updatedAt": "2026-07-28T03:32:38.000Z",
+                      "uid": "35240-67d0f3cb-620f-4f9c-95f1-00c7d1723b68"
+                    },
+                    {
+                      "id": "33801402-f5c9-4646-9a17-6ce2c511a32f",
+                      "name": "Invalid client credentials",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) The OAuth 2.0 grant type. Use authorization_code for initial token requests and refresh_token to renew expired tokens.",
+                              "key": "grant_type",
+                              "value": "refresh_token"
+                            },
+                            {
+                              "description": "(Required) The client identifier issued during API client registration in Workday.",
+                              "key": "client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The client secret issued during API client registration.",
+                              "key": "client_secret",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The authorization code received from the authorization endpoint. Required when grant_type is authorization_code.",
+                              "key": "code",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The redirect URI registered with the API client. Required when grant_type is authorization_code.",
+                              "key": "redirect_uri",
+                              "value": "<uri>"
+                            },
+                            {
+                              "description": "The refresh token issued during a previous token request. Required when grant_type is refresh_token.",
+                              "key": "refresh_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/oauth2/:tenant/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oauth2",
+                            ":tenant",
+                            "token"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tenant"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"unauthorized_client\",\n  \"error_description\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:32:38.000Z",
+                      "updatedAt": "2026-07-28T03:32:38.000Z",
+                      "uid": "35240-33801402-f5c9-4646-9a17-6ce2c511a32f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:32:38.000Z",
+                  "updatedAt": "2026-07-28T03:32:38.000Z",
+                  "uid": "35240-039a70d3-f5b1-4b1d-a6f6-eeb4abd0f3f0"
+                }
+              ],
+              "id": "04d9f0aa-a630-41bf-b0c7-0b4c645b69b3",
+              "createdAt": "2026-07-28T03:32:37.000Z",
+              "updatedAt": "2026-07-28T03:32:37.000Z",
+              "uid": "35240-04d9f0aa-a630-41bf-b0c7-0b4c645b69b3"
+            }
+          ],
+          "id": "cdd8f2dc-c14a-4be5-940b-e76c411980f7",
+          "createdAt": "2026-07-28T03:32:37.000Z",
+          "updatedAt": "2026-07-28T03:32:37.000Z",
+          "uid": "35240-cdd8f2dc-c14a-4be5-940b-e76c411980f7"
+        }
+      ],
+      "id": "954bf389-1b73-4710-a609-ae22325fda9c",
+      "createdAt": "2026-07-28T03:32:37.000Z",
+      "updatedAt": "2026-07-28T03:32:37.000Z",
+      "uid": "35240-954bf389-1b73-4710-a609-ae22325fda9c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

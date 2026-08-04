@@ -1,0 +1,296 @@
+{
+  "info": {
+    "_postman_id": "603bb047-7931-4181-a994-50d8e7822813",
+    "name": "Workday Security Workday Audit and Compliance Account Signons Authentication Configuration API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:30.000Z",
+    "updatedAt": "2026-07-28T03:32:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-603bb047-7931-4181-a994-50d8e7822813"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "{tenant}",
+              "item": [
+                {
+                  "name": "authenticationPolicies",
+                  "item": [
+                    {
+                      "name": "Workday Security List authentication policies",
+                      "id": "572d9295-e453-4800-a0a1-a526e545b461",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/:tenant/authenticationPolicies?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            ":tenant",
+                            "authenticationPolicies"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return per page",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Number of results to skip for pagination",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "949f90b6-b22e-40ea-a2c1-de316ca1b386",
+                              "key": "tenant",
+                              "value": "<string>",
+                              "description": "(Required) Workday tenant identifier"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the collection of authentication policies configured for the tenant, including SSO settings, multi-factor authentication requirements, and password policies."
+                      },
+                      "response": [
+                        {
+                          "id": "d86c5ab7-2d9e-430a-8769-35dfc3bc9d54",
+                          "name": "Collection of authentication policies",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/:tenant/authenticationPolicies?limit=20&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                ":tenant",
+                                "authenticationPolicies"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return per page",
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Number of results to skip for pagination",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "tenant"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"ssoEnabled\": \"<boolean>\",\n      \"samlIdentityProvider\": \"<string>\",\n      \"mfaRequired\": \"<boolean>\",\n      \"passwordPolicyEnabled\": \"<boolean>\",\n      \"sessionTimeoutMinutes\": \"<integer>\",\n      \"allowedAuthenticationTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"ssoEnabled\": \"<boolean>\",\n      \"samlIdentityProvider\": \"<string>\",\n      \"mfaRequired\": \"<boolean>\",\n      \"passwordPolicyEnabled\": \"<boolean>\",\n      \"sessionTimeoutMinutes\": \"<integer>\",\n      \"allowedAuthenticationTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T03:32:31.000Z",
+                          "updatedAt": "2026-07-28T03:32:31.000Z",
+                          "uid": "35240-d86c5ab7-2d9e-430a-8769-35dfc3bc9d54"
+                        },
+                        {
+                          "id": "91abc9c6-9df5-450d-ae65-6e16e53e8a4d",
+                          "name": "Unauthorized - invalid or expired access token",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/:tenant/authenticationPolicies?limit=20&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                ":tenant",
+                                "authenticationPolicies"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return per page",
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Number of results to skip for pagination",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "tenant"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:32:31.000Z",
+                          "updatedAt": "2026-07-28T03:32:31.000Z",
+                          "uid": "35240-91abc9c6-9df5-450d-ae65-6e16e53e8a4d"
+                        },
+                        {
+                          "id": "8c61c3d8-f143-440a-bafa-c0c476493885",
+                          "name": "Forbidden - insufficient permissions",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/:tenant/authenticationPolicies?limit=20&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                ":tenant",
+                                "authenticationPolicies"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return per page",
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Number of results to skip for pagination",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "tenant"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:32:31.000Z",
+                          "updatedAt": "2026-07-28T03:32:31.000Z",
+                          "uid": "35240-8c61c3d8-f143-440a-bafa-c0c476493885"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:32:31.000Z",
+                      "updatedAt": "2026-07-28T03:32:31.000Z",
+                      "uid": "35240-572d9295-e453-4800-a0a1-a526e545b461"
+                    }
+                  ],
+                  "id": "e4e8426b-a6ed-4a92-8148-53349fbfd00e",
+                  "createdAt": "2026-07-28T03:32:31.000Z",
+                  "updatedAt": "2026-07-28T03:32:31.000Z",
+                  "uid": "35240-e4e8426b-a6ed-4a92-8148-53349fbfd00e"
+                }
+              ],
+              "id": "3e6f811a-10e4-4608-ae7f-14c18d7bd75b",
+              "createdAt": "2026-07-28T03:32:31.000Z",
+              "updatedAt": "2026-07-28T03:32:31.000Z",
+              "uid": "35240-3e6f811a-10e4-4608-ae7f-14c18d7bd75b"
+            }
+          ],
+          "id": "705c878f-73c7-404f-8c24-48409833d03b",
+          "createdAt": "2026-07-28T03:32:31.000Z",
+          "updatedAt": "2026-07-28T03:32:31.000Z",
+          "uid": "35240-705c878f-73c7-404f-8c24-48409833d03b"
+        }
+      ],
+      "id": "8c6abef7-45b3-4eb3-92f0-c5d45f7a51ca",
+      "createdAt": "2026-07-28T03:32:31.000Z",
+      "updatedAt": "2026-07-28T03:32:31.000Z",
+      "uid": "35240-8c6abef7-45b3-4eb3-92f0-c5d45f7a51ca"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

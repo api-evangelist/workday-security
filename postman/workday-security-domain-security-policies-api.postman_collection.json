@@ -1,0 +1,488 @@
+{
+  "info": {
+    "_postman_id": "a3ece967-3736-4eb9-b525-6ee3a5f6669a",
+    "name": "Workday Security Workday Audit and Compliance Account Signons Domain Security Policies API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:32.000Z",
+    "updatedAt": "2026-07-28T03:32:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a3ece967-3736-4eb9-b525-6ee3a5f6669a"
+  },
+  "item": [
+    {
+      "name": "domainSecurityPolicies",
+      "item": [
+        {
+          "name": "{policyId}",
+          "item": [
+            {
+              "name": "Workday Security Get a specific domain security policy",
+              "id": "94f31f57-0a9a-4d84-a102-34683f178fac",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainSecurityPolicies/:policyId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainSecurityPolicies",
+                    ":policyId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "91f3aaef-6eef-4bdd-885c-c2b8f3fb6fbc",
+                      "key": "policyId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the domain security policy"
+                    }
+                  ]
+                },
+                "description": "Retrieve detailed information about a specific domain security policy including the security groups with access and their permission levels."
+              },
+              "response": [
+                {
+                  "id": "38e9a9a4-c037-4873-a7fd-ca8e29e871ab",
+                  "name": "Domain security policy details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainSecurityPolicies/:policyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainSecurityPolicies",
+                        ":policyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"descriptor\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"description\": \"<string>\",\n  \"permissions\": [\n    {\n      \"securityGroup\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"href\": \"<uri>\"\n      },\n      \"accessLevel\": \"Modify\"\n    },\n    {\n      \"securityGroup\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"href\": \"<uri>\"\n      },\n      \"accessLevel\": \"Get\"\n    }\n  ],\n  \"lastModified\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T03:32:33.000Z",
+                  "updatedAt": "2026-07-28T03:32:33.000Z",
+                  "uid": "35240-38e9a9a4-c037-4873-a7fd-ca8e29e871ab"
+                },
+                {
+                  "id": "01f6c692-92ff-4d73-b537-4afb38b6cd01",
+                  "name": "Unauthorized - invalid or expired access token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainSecurityPolicies/:policyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainSecurityPolicies",
+                        ":policyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:33.000Z",
+                  "updatedAt": "2026-07-28T03:32:33.000Z",
+                  "uid": "35240-01f6c692-92ff-4d73-b537-4afb38b6cd01"
+                },
+                {
+                  "id": "d0151fb5-da45-4417-991d-46a51955f20a",
+                  "name": "Forbidden - insufficient permissions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainSecurityPolicies/:policyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainSecurityPolicies",
+                        ":policyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:33.000Z",
+                  "updatedAt": "2026-07-28T03:32:33.000Z",
+                  "uid": "35240-d0151fb5-da45-4417-991d-46a51955f20a"
+                },
+                {
+                  "id": "d68b9c15-fe7a-4b1c-a669-e27796de9eb1",
+                  "name": "Domain security policy not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainSecurityPolicies/:policyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainSecurityPolicies",
+                        ":policyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:33.000Z",
+                  "updatedAt": "2026-07-28T03:32:33.000Z",
+                  "uid": "35240-d68b9c15-fe7a-4b1c-a669-e27796de9eb1"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:33.000Z",
+              "updatedAt": "2026-07-28T03:32:33.000Z",
+              "uid": "35240-94f31f57-0a9a-4d84-a102-34683f178fac"
+            }
+          ],
+          "id": "055a5801-c642-4859-a5d5-f6fcbf72f712",
+          "createdAt": "2026-07-28T03:32:33.000Z",
+          "updatedAt": "2026-07-28T03:32:33.000Z",
+          "uid": "35240-055a5801-c642-4859-a5d5-f6fcbf72f712"
+        },
+        {
+          "name": "Workday Security List domain security policies",
+          "id": "fe79903e-a8eb-458d-8449-18b70179eee8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/domainSecurityPolicies?limit=20&offset=0&domain=<string>&search=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "domainSecurityPolicies"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Filter by Workday domain name",
+                  "key": "domain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Search term to filter policies by domain name or description",
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of domain security policies configured in the Workday tenant. Domain security policies define which security groups have access to specific Workday functional domains and what level of access is granted, such as View or Modify permissions."
+          },
+          "response": [
+            {
+              "id": "fd90c250-f597-4f27-88f3-dc6f68d421e7",
+              "name": "Collection of domain security policies",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainSecurityPolicies?limit=20&offset=0&domain=<string>&search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainSecurityPolicies"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by Workday domain name",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search term to filter policies by domain name or description",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"description\": \"<string>\",\n      \"permissions\": [\n        {\n          \"securityGroup\": {\n            \"id\": \"<string>\",\n            \"descriptor\": \"<string>\",\n            \"href\": \"<uri>\"\n          },\n          \"accessLevel\": \"Modify\"\n        },\n        {\n          \"securityGroup\": {\n            \"id\": \"<string>\",\n            \"descriptor\": \"<string>\",\n            \"href\": \"<uri>\"\n          },\n          \"accessLevel\": \"Get\"\n        }\n      ],\n      \"lastModified\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"description\": \"<string>\",\n      \"permissions\": [\n        {\n          \"securityGroup\": {\n            \"id\": \"<string>\",\n            \"descriptor\": \"<string>\",\n            \"href\": \"<uri>\"\n          },\n          \"accessLevel\": \"View\"\n        },\n        {\n          \"securityGroup\": {\n            \"id\": \"<string>\",\n            \"descriptor\": \"<string>\",\n            \"href\": \"<uri>\"\n          },\n          \"accessLevel\": \"Modify\"\n        }\n      ],\n      \"lastModified\": \"<dateTime>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T03:32:33.000Z",
+              "updatedAt": "2026-07-28T03:32:33.000Z",
+              "uid": "35240-fd90c250-f597-4f27-88f3-dc6f68d421e7"
+            },
+            {
+              "id": "a61612b2-9a50-4711-b134-5d4991769bed",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainSecurityPolicies?limit=20&offset=0&domain=<string>&search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainSecurityPolicies"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by Workday domain name",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search term to filter policies by domain name or description",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:33.000Z",
+              "updatedAt": "2026-07-28T03:32:33.000Z",
+              "uid": "35240-a61612b2-9a50-4711-b134-5d4991769bed"
+            },
+            {
+              "id": "b1efa03c-d828-4606-b623-0ab1e0d3d6ef",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainSecurityPolicies?limit=20&offset=0&domain=<string>&search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainSecurityPolicies"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by Workday domain name",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search term to filter policies by domain name or description",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:33.000Z",
+              "updatedAt": "2026-07-28T03:32:33.000Z",
+              "uid": "35240-b1efa03c-d828-4606-b623-0ab1e0d3d6ef"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:33.000Z",
+          "updatedAt": "2026-07-28T03:32:33.000Z",
+          "uid": "35240-fe79903e-a8eb-458d-8449-18b70179eee8"
+        }
+      ],
+      "id": "dae96603-4cda-411b-80be-de68891a4ce0",
+      "createdAt": "2026-07-28T03:32:33.000Z",
+      "updatedAt": "2026-07-28T03:32:33.000Z",
+      "uid": "35240-dae96603-4cda-411b-80be-de68891a4ce0"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

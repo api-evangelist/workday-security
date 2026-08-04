@@ -1,0 +1,627 @@
+{
+  "info": {
+    "_postman_id": "3a62cbcc-6ddd-4aa2-ac1f-9a8b74bb954e",
+    "name": "Workday Security Workday Audit and Compliance Account Signons Audit Logs API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:15.000Z",
+    "updatedAt": "2026-07-28T03:32:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3a62cbcc-6ddd-4aa2-ac1f-9a8b74bb954e"
+  },
+  "item": [
+    {
+      "name": "auditLogs",
+      "item": [
+        {
+          "name": "{auditLogId}",
+          "item": [
+            {
+              "name": "Workday Security Get a specific audit log entry",
+              "id": "ec5eebc9-8df3-4aba-ae89-6292d224fdde",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auditLogs/:auditLogId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auditLogs",
+                    ":auditLogId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "293703c6-0237-413c-9cb4-7dc430b94db9",
+                      "key": "auditLogId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the audit log entry"
+                    }
+                  ]
+                },
+                "description": "Retrieve detailed information about a specific audit log entry including the full event context, before and after values for configuration changes, and related audit entries."
+              },
+              "response": [
+                {
+                  "id": "2821b67a-719a-4e74-9f1d-864fba807dc3",
+                  "name": "Audit log entry details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/auditLogs/:auditLogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auditLogs",
+                        ":auditLogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "auditLogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"eventType\": \"Data_Modification\",\n  \"eventDateTime\": \"<dateTime>\",\n  \"actor\": {\n    \"id\": \"<string>\",\n    \"descriptor\": \"<string>\",\n    \"accountType\": \"IntegrationSystemUser\"\n  },\n  \"action\": \"<string>\",\n  \"target\": {\n    \"id\": \"<string>\",\n    \"descriptor\": \"<string>\",\n    \"href\": \"<uri>\",\n    \"resourceType\": \"<string>\"\n  },\n  \"description\": \"<string>\",\n  \"previousValue\": \"<string>\",\n  \"newValue\": \"<string>\",\n  \"ipAddress\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"outcome\": \"Failure\"\n}",
+                  "createdAt": "2026-07-28T03:32:16.000Z",
+                  "updatedAt": "2026-07-28T03:32:16.000Z",
+                  "uid": "35240-2821b67a-719a-4e74-9f1d-864fba807dc3"
+                },
+                {
+                  "id": "82aef6ff-5f39-4af4-b4a0-15e28fcbbb36",
+                  "name": "Unauthorized - invalid or expired access token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/auditLogs/:auditLogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auditLogs",
+                        ":auditLogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "auditLogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:16.000Z",
+                  "updatedAt": "2026-07-28T03:32:16.000Z",
+                  "uid": "35240-82aef6ff-5f39-4af4-b4a0-15e28fcbbb36"
+                },
+                {
+                  "id": "d5042d35-e0de-4707-8af6-0a8e554998b4",
+                  "name": "Forbidden - insufficient permissions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/auditLogs/:auditLogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auditLogs",
+                        ":auditLogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "auditLogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:16.000Z",
+                  "updatedAt": "2026-07-28T03:32:16.000Z",
+                  "uid": "35240-d5042d35-e0de-4707-8af6-0a8e554998b4"
+                },
+                {
+                  "id": "f55faf82-4a57-4271-9fd8-d7971fde3f3b",
+                  "name": "Audit log entry not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/auditLogs/:auditLogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auditLogs",
+                        ":auditLogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "auditLogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:16.000Z",
+                  "updatedAt": "2026-07-28T03:32:16.000Z",
+                  "uid": "35240-f55faf82-4a57-4271-9fd8-d7971fde3f3b"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:16.000Z",
+              "updatedAt": "2026-07-28T03:32:16.000Z",
+              "uid": "35240-ec5eebc9-8df3-4aba-ae89-6292d224fdde"
+            }
+          ],
+          "id": "ef588fd1-af80-4021-b13b-3f9f8d082352",
+          "createdAt": "2026-07-28T03:32:15.000Z",
+          "updatedAt": "2026-07-28T03:32:15.000Z",
+          "uid": "35240-ef588fd1-af80-4021-b13b-3f9f8d082352"
+        },
+        {
+          "name": "Workday Security List audit log entries",
+          "id": "70b0f60e-407e-4cf1-a9f9-fedcb85d2127",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auditLogs?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&eventType=Data_Access&actor=<string>&target=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auditLogs"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Start of the date range for filtering audit log entries",
+                  "key": "fromDateTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "End of the date range for filtering audit log entries",
+                  "key": "toDateTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filter by the type of audit event",
+                  "key": "eventType",
+                  "value": "Data_Access"
+                },
+                {
+                  "description": "Filter by the account that performed the audited action",
+                  "key": "actor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by the target resource or object of the audited action",
+                  "key": "target",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of audit log entries for the tenant. Audit logs record system events, configuration changes, data modifications, and administrative actions. Supports filtering by date range, event type, and the actor who performed the action."
+          },
+          "response": [
+            {
+              "id": "07ad2f19-291b-4838-a2c9-7148839c89a5",
+              "name": "Collection of audit log entries",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auditLogs?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&eventType=Data_Access&actor=<string>&target=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auditLogs"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Start of the date range for filtering audit log entries",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End of the date range for filtering audit log entries",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter by the type of audit event",
+                      "key": "eventType",
+                      "value": "Data_Access"
+                    },
+                    {
+                      "description": "Filter by the account that performed the audited action",
+                      "key": "actor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the target resource or object of the audited action",
+                      "key": "target",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"eventType\": \"Configuration_Change\",\n      \"eventDateTime\": \"<dateTime>\",\n      \"actor\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"accountType\": \"User\"\n      },\n      \"action\": \"<string>\",\n      \"target\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"href\": \"<uri>\",\n        \"resourceType\": \"<string>\"\n      },\n      \"description\": \"<string>\",\n      \"previousValue\": \"<string>\",\n      \"newValue\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"sessionId\": \"<string>\",\n      \"outcome\": \"Partial\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"eventType\": \"System_Event\",\n      \"eventDateTime\": \"<dateTime>\",\n      \"actor\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"accountType\": \"IntegrationSystemUser\"\n      },\n      \"action\": \"<string>\",\n      \"target\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"href\": \"<uri>\",\n        \"resourceType\": \"<string>\"\n      },\n      \"description\": \"<string>\",\n      \"previousValue\": \"<string>\",\n      \"newValue\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"sessionId\": \"<string>\",\n      \"outcome\": \"Partial\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T03:32:16.000Z",
+              "updatedAt": "2026-07-28T03:32:16.000Z",
+              "uid": "35240-07ad2f19-291b-4838-a2c9-7148839c89a5"
+            },
+            {
+              "id": "5d4cba75-1764-499c-8ca3-996478e55f23",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auditLogs?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&eventType=Data_Access&actor=<string>&target=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auditLogs"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Start of the date range for filtering audit log entries",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End of the date range for filtering audit log entries",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter by the type of audit event",
+                      "key": "eventType",
+                      "value": "Data_Access"
+                    },
+                    {
+                      "description": "Filter by the account that performed the audited action",
+                      "key": "actor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the target resource or object of the audited action",
+                      "key": "target",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:32:16.000Z",
+              "updatedAt": "2026-07-28T03:32:16.000Z",
+              "uid": "35240-5d4cba75-1764-499c-8ca3-996478e55f23"
+            },
+            {
+              "id": "b18701a7-ef8c-4370-928e-cda1007c2efb",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auditLogs?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&eventType=Data_Access&actor=<string>&target=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auditLogs"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Start of the date range for filtering audit log entries",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End of the date range for filtering audit log entries",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter by the type of audit event",
+                      "key": "eventType",
+                      "value": "Data_Access"
+                    },
+                    {
+                      "description": "Filter by the account that performed the audited action",
+                      "key": "actor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the target resource or object of the audited action",
+                      "key": "target",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:16.000Z",
+              "updatedAt": "2026-07-28T03:32:16.000Z",
+              "uid": "35240-b18701a7-ef8c-4370-928e-cda1007c2efb"
+            },
+            {
+              "id": "04446229-828b-42d7-a97d-f10c5c832dea",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auditLogs?limit=20&offset=0&fromDateTime=<dateTime>&toDateTime=<dateTime>&eventType=Data_Access&actor=<string>&target=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auditLogs"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Start of the date range for filtering audit log entries",
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End of the date range for filtering audit log entries",
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter by the type of audit event",
+                      "key": "eventType",
+                      "value": "Data_Access"
+                    },
+                    {
+                      "description": "Filter by the account that performed the audited action",
+                      "key": "actor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the target resource or object of the audited action",
+                      "key": "target",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:16.000Z",
+              "updatedAt": "2026-07-28T03:32:16.000Z",
+              "uid": "35240-04446229-828b-42d7-a97d-f10c5c832dea"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:16.000Z",
+          "updatedAt": "2026-07-28T03:32:16.000Z",
+          "uid": "35240-70b0f60e-407e-4cf1-a9f9-fedcb85d2127"
+        }
+      ],
+      "id": "f085a732-7433-45f1-9ddf-a6af279f823e",
+      "createdAt": "2026-07-28T03:32:15.000Z",
+      "updatedAt": "2026-07-28T03:32:15.000Z",
+      "uid": "35240-f085a732-7433-45f1-9ddf-a6af279f823e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

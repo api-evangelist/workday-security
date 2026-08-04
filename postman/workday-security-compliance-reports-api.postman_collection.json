@@ -1,0 +1,254 @@
+{
+  "info": {
+    "_postman_id": "df839af6-1e79-4c35-8d21-2509205c6050",
+    "name": "Workday Security Workday Audit and Compliance Account Signons Compliance Reports API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:31.000Z",
+    "updatedAt": "2026-07-28T03:32:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-df839af6-1e79-4c35-8d21-2509205c6050"
+  },
+  "item": [
+    {
+      "name": "complianceReports",
+      "item": [
+        {
+          "name": "Workday Security List compliance reports",
+          "id": "088d8ef7-7fb8-4b9c-8e8a-6a1018028746",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/complianceReports?limit=20&offset=0&reportType=Regulatory_Compliance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "complianceReports"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Filter by the type of compliance report",
+                  "key": "reportType",
+                  "value": "Regulatory_Compliance"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of available compliance reports for the tenant. Compliance reports summarize audit activity, policy adherence, and regulatory compliance status for defined reporting periods."
+          },
+          "response": [
+            {
+              "id": "d7723589-8c24-4789-9c6a-efb590d121c7",
+              "name": "Collection of compliance reports",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/complianceReports?limit=20&offset=0&reportType=Regulatory_Compliance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "complianceReports"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by the type of compliance report",
+                      "key": "reportType",
+                      "value": "Regulatory_Compliance"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"reportType\": \"Regulatory_Compliance\",\n      \"periodStart\": \"<date>\",\n      \"periodEnd\": \"<date>\",\n      \"generatedOn\": \"<dateTime>\",\n      \"status\": \"Generated\",\n      \"totalEvents\": \"<integer>\",\n      \"summary\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"reportType\": \"Access_Review\",\n      \"periodStart\": \"<date>\",\n      \"periodEnd\": \"<date>\",\n      \"generatedOn\": \"<dateTime>\",\n      \"status\": \"Generated\",\n      \"totalEvents\": \"<integer>\",\n      \"summary\": \"<string>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T03:32:32.000Z",
+              "updatedAt": "2026-07-28T03:32:32.000Z",
+              "uid": "35240-d7723589-8c24-4789-9c6a-efb590d121c7"
+            },
+            {
+              "id": "2e8b978f-9f76-4037-86b0-ea56246469a9",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/complianceReports?limit=20&offset=0&reportType=Regulatory_Compliance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "complianceReports"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by the type of compliance report",
+                      "key": "reportType",
+                      "value": "Regulatory_Compliance"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:32.000Z",
+              "updatedAt": "2026-07-28T03:32:32.000Z",
+              "uid": "35240-2e8b978f-9f76-4037-86b0-ea56246469a9"
+            },
+            {
+              "id": "7c933605-96b6-4ab1-9ee9-ef8bb9855674",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/complianceReports?limit=20&offset=0&reportType=Regulatory_Compliance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "complianceReports"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by the type of compliance report",
+                      "key": "reportType",
+                      "value": "Regulatory_Compliance"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:32.000Z",
+              "updatedAt": "2026-07-28T03:32:32.000Z",
+              "uid": "35240-7c933605-96b6-4ab1-9ee9-ef8bb9855674"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:32.000Z",
+          "updatedAt": "2026-07-28T03:32:32.000Z",
+          "uid": "35240-088d8ef7-7fb8-4b9c-8e8a-6a1018028746"
+        }
+      ],
+      "id": "cec7175e-f650-4e18-8ce6-0cd96fa6f845",
+      "createdAt": "2026-07-28T03:32:32.000Z",
+      "updatedAt": "2026-07-28T03:32:32.000Z",
+      "uid": "35240-cec7175e-f650-4e18-8ce6-0cd96fa6f845"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}

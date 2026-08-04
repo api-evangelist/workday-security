@@ -1,0 +1,488 @@
+{
+  "info": {
+    "_postman_id": "49994851-7807-4e6f-b66c-a1d3c605dea3",
+    "name": "Workday Security Workday Audit and Compliance Account Signons User Accounts API",
+    "description": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:32:49.000Z",
+    "updatedAt": "2026-07-28T03:32:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-49994851-7807-4e6f-b66c-a1d3c605dea3"
+  },
+  "item": [
+    {
+      "name": "userAccounts",
+      "item": [
+        {
+          "name": "{accountId}",
+          "item": [
+            {
+              "name": "Workday Security Get a specific user account",
+              "id": "6cb03689-f87a-4c7c-95a1-94f83eafe376",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/userAccounts/:accountId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "userAccounts",
+                    ":accountId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "26d1ff4f-d8ce-49ba-a34b-fb520b223002",
+                      "key": "accountId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the user account"
+                    }
+                  ]
+                },
+                "description": "Retrieve detailed information about a specific Workday user account including account status, associated security groups, and last signon information."
+              },
+              "response": [
+                {
+                  "id": "9579a49c-cdce-49a7-b5ea-88899c49ea5a",
+                  "name": "User account details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/userAccounts/:accountId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "userAccounts",
+                        ":accountId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "accountId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"descriptor\": \"<string>\",\n  \"userName\": \"<string>\",\n  \"accountStatus\": \"Active\",\n  \"accountType\": \"IntegrationSystemUser\",\n  \"lastSignonDateTime\": \"<dateTime>\",\n  \"accountExpirationDate\": \"<date>\",\n  \"passwordExpirationDate\": \"<date>\",\n  \"mfaEnabled\": \"<boolean>\",\n  \"worker\": {\n    \"id\": \"<string>\",\n    \"descriptor\": \"<string>\",\n    \"href\": \"<uri>\"\n  }\n}",
+                  "createdAt": "2026-07-28T03:32:49.000Z",
+                  "updatedAt": "2026-07-28T03:32:49.000Z",
+                  "uid": "35240-9579a49c-cdce-49a7-b5ea-88899c49ea5a"
+                },
+                {
+                  "id": "6f85470f-0588-4418-bdcc-c7ec93985215",
+                  "name": "Unauthorized - invalid or expired access token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/userAccounts/:accountId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "userAccounts",
+                        ":accountId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "accountId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:49.000Z",
+                  "updatedAt": "2026-07-28T03:32:49.000Z",
+                  "uid": "35240-6f85470f-0588-4418-bdcc-c7ec93985215"
+                },
+                {
+                  "id": "90de68d4-922f-4662-a94e-6a2be50462fd",
+                  "name": "Forbidden - insufficient permissions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/userAccounts/:accountId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "userAccounts",
+                        ":accountId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "accountId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:49.000Z",
+                  "updatedAt": "2026-07-28T03:32:49.000Z",
+                  "uid": "35240-90de68d4-922f-4662-a94e-6a2be50462fd"
+                },
+                {
+                  "id": "4094862e-c54b-4e80-92d8-13ae5e1ac844",
+                  "name": "User account not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/userAccounts/:accountId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "userAccounts",
+                        ":accountId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "accountId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:32:49.000Z",
+                  "updatedAt": "2026-07-28T03:32:49.000Z",
+                  "uid": "35240-4094862e-c54b-4e80-92d8-13ae5e1ac844"
+                }
+              ],
+              "createdAt": "2026-07-28T03:32:49.000Z",
+              "updatedAt": "2026-07-28T03:32:49.000Z",
+              "uid": "35240-6cb03689-f87a-4c7c-95a1-94f83eafe376"
+            }
+          ],
+          "id": "438768fd-2096-438c-9294-a6410c5ee414",
+          "createdAt": "2026-07-28T03:32:49.000Z",
+          "updatedAt": "2026-07-28T03:32:49.000Z",
+          "uid": "35240-438768fd-2096-438c-9294-a6410c5ee414"
+        },
+        {
+          "name": "Workday Security List user accounts",
+          "id": "5871f768-a4f2-400f-a4bd-732db484524f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/userAccounts?limit=20&offset=0&accountStatus=Disabled&search=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "userAccounts"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return per page",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Number of results to skip for pagination",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Filter by account status",
+                  "key": "accountStatus",
+                  "value": "Disabled"
+                },
+                {
+                  "description": "Search term to filter user accounts by username or display name",
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a collection of Workday user accounts including their account status, associated worker, and security configuration. Supports filtering by account status and search terms."
+          },
+          "response": [
+            {
+              "id": "8490c9d9-c6db-429a-85f6-7674755c483e",
+              "name": "Collection of user accounts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/userAccounts?limit=20&offset=0&accountStatus=Disabled&search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "userAccounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by account status",
+                      "key": "accountStatus",
+                      "value": "Disabled"
+                    },
+                    {
+                      "description": "Search term to filter user accounts by username or display name",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"userName\": \"<string>\",\n      \"accountStatus\": \"Locked\",\n      \"accountType\": \"User\",\n      \"lastSignonDateTime\": \"<dateTime>\",\n      \"accountExpirationDate\": \"<date>\",\n      \"passwordExpirationDate\": \"<date>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"worker\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"href\": \"<uri>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"descriptor\": \"<string>\",\n      \"userName\": \"<string>\",\n      \"accountStatus\": \"Expired\",\n      \"accountType\": \"User\",\n      \"lastSignonDateTime\": \"<dateTime>\",\n      \"accountExpirationDate\": \"<date>\",\n      \"passwordExpirationDate\": \"<date>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"worker\": {\n        \"id\": \"<string>\",\n        \"descriptor\": \"<string>\",\n        \"href\": \"<uri>\"\n      }\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T03:32:49.000Z",
+              "updatedAt": "2026-07-28T03:32:49.000Z",
+              "uid": "35240-8490c9d9-c6db-429a-85f6-7674755c483e"
+            },
+            {
+              "id": "f3f48d7a-0258-4b4a-a8bd-d77bd35b952d",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/userAccounts?limit=20&offset=0&accountStatus=Disabled&search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "userAccounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by account status",
+                      "key": "accountStatus",
+                      "value": "Disabled"
+                    },
+                    {
+                      "description": "Search term to filter user accounts by username or display name",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:49.000Z",
+              "updatedAt": "2026-07-28T03:32:49.000Z",
+              "uid": "35240-f3f48d7a-0258-4b4a-a8bd-d77bd35b952d"
+            },
+            {
+              "id": "ab150faa-1cef-4bf9-a6d9-877f41f73269",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/userAccounts?limit=20&offset=0&accountStatus=Disabled&search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "userAccounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by account status",
+                      "key": "accountStatus",
+                      "value": "Disabled"
+                    },
+                    {
+                      "description": "Search term to filter user accounts by username or display name",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:32:49.000Z",
+              "updatedAt": "2026-07-28T03:32:49.000Z",
+              "uid": "35240-ab150faa-1cef-4bf9-a6d9-877f41f73269"
+            }
+          ],
+          "createdAt": "2026-07-28T03:32:49.000Z",
+          "updatedAt": "2026-07-28T03:32:49.000Z",
+          "uid": "35240-5871f768-a4f2-400f-a4bd-732db484524f"
+        }
+      ],
+      "id": "3d714831-0f08-46d0-9f3d-f8191fb8bee6",
+      "createdAt": "2026-07-28T03:32:49.000Z",
+      "updatedAt": "2026-07-28T03:32:49.000Z",
+      "uid": "35240-3d714831-0f08-46d0-9f3d-f8191fb8bee6"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "host",
+      "value": "wd2-impl-services1.workday.com"
+    },
+    {
+      "key": "tenant",
+      "value": "your-tenant"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}"
+    }
+  ]
+}
