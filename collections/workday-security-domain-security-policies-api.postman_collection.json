@@ -1,0 +1,643 @@
+{
+  "item": [
+    {
+      "id": "c27eca45-4977-4b58-a4c8-38001813bb6b",
+      "name": "Domain Security Policies",
+      "description": {
+        "content": "Manage domain security policies that define which security groups have access to specific Workday functional domains and the permission levels granted.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7d46077-0c51-4b82-aa42-7274617be921",
+          "name": "Workday Security List domain security policies",
+          "request": {
+            "name": "Workday Security List domain security policies",
+            "description": {
+              "content": "Retrieve a collection of domain security policies configured in the Workday tenant. Domain security policies define which security groups have access to specific Workday functional domains and what level of access is granted, such as View or Modify permissions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "domainSecurityPolicies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "domain",
+                  "value": "<string>",
+                  "description": "Filter by Workday domain name"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search term to filter policies by domain name or description"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday host for your tenant environment",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Workday tenant identifier",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97c03cb3-9d43-40bb-a634-6f750d8fd89d",
+              "name": "Collection of domain security policies",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "domainSecurityPolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"descriptor\": \"string\",\n      \"domain\": \"string\",\n      \"description\": \"string\",\n      \"permissions\": [\n        {\n          \"securityGroup\": {\n            \"id\": \"string\",\n            \"descriptor\": \"string\",\n            \"href\": \"http://k.ntuv2IkhKA3u4QIzcjcSX,N,ncN9LMFaxs,UmkLxs\"\n          },\n          \"accessLevel\": \"Put\"\n        },\n        {\n          \"securityGroup\": {\n            \"id\": \"string\",\n            \"descriptor\": \"string\",\n            \"href\": \"http://HmUIyIg.nepKsW3KD9uqHN.imyeK31wb20KAb2bwpZKXXXHLcihGpM3OKF+oVql3YWl4Aqktuux7\"\n          },\n          \"accessLevel\": \"Get\"\n        }\n      ],\n      \"lastModified\": \"1969-02-15T12:54:10.447Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"descriptor\": \"string\",\n      \"domain\": \"string\",\n      \"description\": \"string\",\n      \"permissions\": [\n        {\n          \"securityGroup\": {\n            \"id\": \"string\",\n            \"descriptor\": \"string\",\n            \"href\": \"http://WEUtStQoimiLlqslWVBx.hlxhH5Extv8SYQ4Oo,4y+6WfCI\"\n          },\n          \"accessLevel\": \"View\"\n        },\n        {\n          \"securityGroup\": {\n            \"id\": \"string\",\n            \"descriptor\": \"string\",\n            \"href\": \"https://AVNywirMPmZwuwjdzal.zqcwsqI192K+aXQekop1QlI68u-aVgcMsmnnVwDIn-XVmaEHcx,qWNlrGL5.VEx.bt5.y5zpZuB\"\n          },\n          \"accessLevel\": \"Modify\"\n        }\n      ],\n      \"lastModified\": \"2012-02-29T20:49:54.304Z\"\n    }\n  ],\n  \"total\": 2991\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "521fdfa7-9e38-49fd-a21a-d725a917d108",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "domainSecurityPolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc533aa2-a7ed-4105-9a83-aa7d41eb31b0",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "domainSecurityPolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9aef4da3-ca0a-4e7f-91d4-43b458a3808d",
+          "name": "Workday Security Get a specific domain security policy",
+          "request": {
+            "name": "Workday Security Get a specific domain security policy",
+            "description": {
+              "content": "Retrieve detailed information about a specific domain security policy including the security groups with access and their permission levels.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "domainSecurityPolicies",
+                ":policyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "policyId",
+                  "description": "(Required) Unique identifier of the domain security policy"
+                },
+                {
+                  "description": "Workday host for your tenant environment",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Workday tenant identifier",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9736d0d9-0723-4f00-b5c0-68124362e646",
+              "name": "Domain security policy details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "domainSecurityPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) Unique identifier of the domain security policy"
+                    },
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"descriptor\": \"string\",\n  \"domain\": \"string\",\n  \"description\": \"string\",\n  \"permissions\": [\n    {\n      \"securityGroup\": {\n        \"id\": \"string\",\n        \"descriptor\": \"string\",\n        \"href\": \"http://eGlfWlFdmvJpcgGILardYGwihLA.jiokv7xRpH.n400X,yjC6zGVmeQXj9yclSGTUm\"\n      },\n      \"accessLevel\": \"View\"\n    },\n    {\n      \"securityGroup\": {\n        \"id\": \"string\",\n        \"descriptor\": \"string\",\n        \"href\": \"http://VVvbWfStJJDUAaAEqrsdZGYrInZBePovz.ktxdWvKG+6R81.jnJMBJv2wXUYuarMXmThQGK4K0iDcK6mObAy+PiKLvqgMstFdxZZSuGZDgDENd\"\n      },\n      \"accessLevel\": \"Put\"\n    }\n  ],\n  \"lastModified\": \"1963-10-07T05:19:00.480Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efc42d9d-f02e-453f-8630-1fef2b7ac4c8",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "domainSecurityPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) Unique identifier of the domain security policy"
+                    },
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3719d04c-1d4c-4493-a5cf-353517a30fa3",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "domainSecurityPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) Unique identifier of the domain security policy"
+                    },
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10186de9-f906-471b-a272-021fc9c6d2a5",
+              "name": "Domain security policy not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "domainSecurityPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) Unique identifier of the domain security policy"
+                    },
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Workday host for your tenant environment",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "wd2-impl-services1.workday.com",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "Workday tenant identifier",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9e43a7e5-cee5-4586-a879-fd11f7793e16",
+    "name": "Workday Security Workday Audit and Compliance Account Signons Domain Security Policies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+      "type": "text/plain"
+    }
+  }
+}

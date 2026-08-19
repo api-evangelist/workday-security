@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workday Security Workday Audit and Compliance Account Signons User Accounts API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Security List user accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/userAccounts",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              },
+              {
+                "name": "accountStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter by account status"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter user accounts by username or display name"
+              }
+            ]
+          },
+          "docs": "Retrieve a collection of Workday user accounts including their account status, associated worker, and security configuration. Supports filtering by account status and search terms."
+        },
+        {
+          "info": {
+            "name": "Workday Security Get a specific user account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/userAccounts/:accountId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user account"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific Workday user account including account status, associated security groups, and last signon information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

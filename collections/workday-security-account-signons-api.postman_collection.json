@@ -1,0 +1,760 @@
+{
+  "item": [
+    {
+      "id": "40305a37-1737-4397-bf30-3ef62e26d4ac",
+      "name": "Account Signons",
+      "description": {
+        "content": "Retrieve and monitor Workday account signon events where the username corresponds to a valid Workday account. Provides detailed signon history including timestamps, IP addresses, and authentication methods.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53856873-c762-4422-9780-bcd8c5e6f013",
+          "name": "Workday Security List Workday account signons",
+          "request": {
+            "name": "Workday Security List Workday account signons",
+            "description": {
+              "content": "Retrieve a collection of signon events for valid Workday accounts. Returns detailed records of authentication events including the signon timestamp, IP address, authentication type, and the associated Workday account. The time range specified in the request criteria must be less than 24 hours. This operation excludes signon attempts where an unidentified or invalid username was provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accountSignons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDateTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) Start of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) End of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours."
+                },
+                {
+                  "disabled": false,
+                  "key": "systemAccount",
+                  "value": "<string>",
+                  "description": "Filter signons by the system account username"
+                },
+                {
+                  "disabled": false,
+                  "key": "successful",
+                  "value": "<boolean>",
+                  "description": "Filter by signon success status. Set to true for successful signons only or false for failed signons only."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Workday host for your tenant environment",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Workday tenant identifier",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36f8f734-1398-4735-b530-a8895b27424d",
+              "name": "Collection of account signon events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accountSignons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "systemAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "successful",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"systemAccount\": \"string\",\n      \"signonDateTime\": \"2022-01-13T22:30:05.865Z\",\n      \"ipAddress\": \"string\",\n      \"authenticationType\": \"string\",\n      \"browserType\": \"string\",\n      \"operatingSystem\": \"string\",\n      \"deviceType\": \"string\",\n      \"deviceIsTrusted\": false,\n      \"isDeviceManaged\": false,\n      \"sessionId\": \"string\",\n      \"sessionStart\": \"1976-10-26T01:39:55.797Z\",\n      \"sessionEnd\": \"1956-11-15T10:36:39.454Z\",\n      \"successful\": false,\n      \"failedSignonReason\": \"string\",\n      \"passwordChanged\": false,\n      \"forgottenPasswordResetRequest\": false,\n      \"multiFactorType\": \"string\",\n      \"samlIdentityProvider\": \"string\",\n      \"uiClientType\": \"string\",\n      \"requestOriginator\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"systemAccount\": \"string\",\n      \"signonDateTime\": \"1969-04-05T02:09:26.394Z\",\n      \"ipAddress\": \"string\",\n      \"authenticationType\": \"string\",\n      \"browserType\": \"string\",\n      \"operatingSystem\": \"string\",\n      \"deviceType\": \"string\",\n      \"deviceIsTrusted\": false,\n      \"isDeviceManaged\": false,\n      \"sessionId\": \"string\",\n      \"sessionStart\": \"2006-04-20T16:31:50.493Z\",\n      \"sessionEnd\": \"2026-04-09T01:25:07.376Z\",\n      \"successful\": false,\n      \"failedSignonReason\": \"string\",\n      \"passwordChanged\": true,\n      \"forgottenPasswordResetRequest\": true,\n      \"multiFactorType\": \"string\",\n      \"samlIdentityProvider\": \"string\",\n      \"uiClientType\": \"string\",\n      \"requestOriginator\": \"string\"\n    }\n  ],\n  \"total\": 708\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e271b728-3c74-4963-a994-fc537c37142f",
+              "name": "Invalid request. The time range exceeds 24 hours or required parameters are missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accountSignons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "systemAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "successful",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64c0dbf6-5964-4235-a409-24585dc8e087",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accountSignons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "systemAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "successful",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b732265-44ca-41f0-8a8c-49d61e392bca",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accountSignons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "systemAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "successful",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52b14a60-ad67-4cc3-a791-27c5521e5909",
+          "name": "Workday Security Get a specific account signon",
+          "request": {
+            "name": "Workday Security Get a specific account signon",
+            "description": {
+              "content": "Retrieve detailed information about a specific signon event identified by its unique signon identifier. Returns the full signon record including timestamps, IP address, device information, and authentication method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accountSignons",
+                ":signonId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "signonId",
+                  "description": "(Required) Unique identifier of the signon event"
+                },
+                {
+                  "description": "Workday host for your tenant environment",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Workday tenant identifier",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "027813c0-3b83-44a4-94f4-dc4b7312aab3",
+              "name": "Signon event details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accountSignons",
+                    ":signonId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "signonId",
+                      "description": "(Required) Unique identifier of the signon event"
+                    },
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"systemAccount\": \"string\",\n  \"signonDateTime\": \"1985-06-27T11:00:58.908Z\",\n  \"ipAddress\": \"string\",\n  \"authenticationType\": \"string\",\n  \"browserType\": \"string\",\n  \"operatingSystem\": \"string\",\n  \"deviceType\": \"string\",\n  \"deviceIsTrusted\": false,\n  \"isDeviceManaged\": true,\n  \"sessionId\": \"string\",\n  \"sessionStart\": \"1949-11-02T13:44:34.193Z\",\n  \"sessionEnd\": \"1958-04-07T10:27:33.182Z\",\n  \"successful\": true,\n  \"failedSignonReason\": \"string\",\n  \"passwordChanged\": true,\n  \"forgottenPasswordResetRequest\": false,\n  \"multiFactorType\": \"string\",\n  \"samlIdentityProvider\": \"string\",\n  \"uiClientType\": \"string\",\n  \"requestOriginator\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ca15719-13a9-4983-88a7-5cb6bd8fddf7",
+              "name": "Unauthorized - invalid or expired access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accountSignons",
+                    ":signonId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "signonId",
+                      "description": "(Required) Unique identifier of the signon event"
+                    },
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be6b077e-7b4b-452e-8191-f5dd5267ed10",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accountSignons",
+                    ":signonId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "signonId",
+                      "description": "(Required) Unique identifier of the signon event"
+                    },
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d13f25a3-3cf2-40f6-9739-7ed9aab75e62",
+              "name": "Signon event not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accountSignons",
+                    ":signonId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "signonId",
+                      "description": "(Required) Unique identifier of the signon event"
+                    },
+                    {
+                      "description": "Workday host for your tenant environment",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Workday tenant identifier",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Workday host for your tenant environment",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "wd2-impl-services1.workday.com",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "Workday tenant identifier",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/ccx/api/v1/{{tenant}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5e4d4d66-7211-4086-b313-2e7e6d5cf5c9",
+    "name": "Workday Security Workday Audit and Compliance Account Signons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Access audit logs, security reports, and compliance data within the Workday platform. Provides programmatic access to audit trail information for security monitoring, regulatory compliance, and governance reporting. Supports retrieval of configuration change history, security policy modifications, and access control audit records for maintaining a complete compliance trail.\n\nContact Support:\n Name: Workday Support\n Email: support@workday.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workday Security Workday Audit and Compliance Account Signons API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account Signons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Security List Workday account signons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/accountSignons",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Start of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "End of the time range for retrieving signons. The range between fromDateTime and toDateTime must be less than 24 hours."
+              },
+              {
+                "name": "systemAccount",
+                "value": "",
+                "type": "query",
+                "description": "Filter signons by the system account username"
+              },
+              {
+                "name": "successful",
+                "value": "",
+                "type": "query",
+                "description": "Filter by signon success status. Set to true for successful signons only or false for failed signons only."
+              }
+            ]
+          },
+          "docs": "Retrieve a collection of signon events for valid Workday accounts. Returns detailed records of authentication events including the signon timestamp, IP address, authentication type, and the associated Workday account. The time range specified in the request criteria must be less than 24 hours. This operation excludes signon attempts where an unidentified or invalid username was provided."
+        },
+        {
+          "info": {
+            "name": "Workday Security Get a specific account signon",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/accountSignons/:signonId",
+            "params": [
+              {
+                "name": "signonId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the signon event"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific signon event identified by its unique signon identifier. Returns the full signon record including timestamps, IP address, device information, and authentication method."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

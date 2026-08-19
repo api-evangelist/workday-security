@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workday Security Workday Audit and Compliance Account Signons Compliance Reports API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Compliance Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Security List compliance reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/complianceReports",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the type of compliance report"
+              }
+            ]
+          },
+          "docs": "Retrieve a collection of available compliance reports for the tenant. Compliance reports summarize audit activity, policy adherence, and regulatory compliance status for defined reporting periods."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workday Security Workday Audit and Compliance Account Signons Authentication Configuration API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Workday Security List authentication policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/ccx/api/v1/{tenant}/api/v1/:tenant/authenticationPolicies",
+            "params": [
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "path",
+                "description": "Workday tenant identifier"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve the collection of authentication policies configured for the tenant, including SSO settings, multi-factor authentication requirements, and password policies."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
