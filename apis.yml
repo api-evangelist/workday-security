@@ -26,22 +26,20 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 name: Workday Security
-description: >-
-  Collection of Workday Security APIs for managing authentication, authorization, and security configurations including
-  identity management, security groups, audit logging, privacy, and user activity monitoring.
+description: Collection of Workday Security APIs for managing authentication, authorization, and security
+  configurations including identity management, security groups, audit logging, privacy, and user activity
+  monitoring.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/workday-security.png
 url: https://raw.githubusercontent.com/api-evangelist/workday-security/refs/heads/main/apis.yml
 created: '2024-01-15'
-modified: '2026-05-19'
+modified: '2026-09-16'
 apis:
 - name: Workday User Activity Logging API
-  description: >-
-    REST API for retrieving user activity logs and signon data from a Workday tenant. Returns detailed
-    JSON records of user actions including task information, timestamps, IP addresses, activity actions,
-    system accounts, and session identifiers. Used by SIEM platforms for security monitoring.
+  description: REST API for retrieving user activity logs and signon data from a Workday tenant. Returns
+    detailed JSON records of user actions including task information, timestamps, IP addresses, activity
+    actions, system accounts, and session identifiers. Used by SIEM platforms for security monitoring.
   image: https://www.workday.com/content/dam/web/images/icons/wd-icon.png
-  humanURL: >-
-    https://doc.workday.com/admin-guide/en-us/integrations/workday-rest-api/rest-api-guides/user-activity-logging-rest-api/mhr1626995534900.html
+  humanURL: https://doc.workday.com/admin-guide/en-us/integrations/workday-rest-api/rest-api-guides/user-activity-logging-rest-api/mhr1626995534900.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/api/privacy/v1/
   tags:
   - Activity Logging
@@ -51,22 +49,19 @@ apis:
   - Signons
   properties:
   - type: Documentation
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/integrations/workday-rest-api/rest-api-guides/user-activity-logging-rest-api/mhr1626995534900.html
+    url: https://doc.workday.com/admin-guide/en-us/integrations/workday-rest-api/rest-api-guides/user-activity-logging-rest-api/mhr1626995534900.html
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   contact:
   - FN: Workday Support
     email: support@workday.com
     url: https://community.workday.com
 - aid: workday-security:workday-security-account-signons-api
   name: Workday Security Account Signons API
-  description: >-
-    Retrieve and monitor Workday account signon events where the username corresponds to a valid Workday
-    account. Provides detailed signon history including timestamps, IP addresses, and authentication methods.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Retrieve and monitor Workday account signon events where the username corresponds to a
+    valid Workday account. Provides detailed signon history including timestamps, IP addresses, and authentication
+    methods.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Account Signons
@@ -74,48 +69,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-account-signons-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-audit-logs-api
   name: Workday Security Audit Logs API
-  description: >-
-    Retrieve audit log entries that record system events, configuration changes, and administrative actions
-    for compliance monitoring.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Retrieve audit log entries that record system events, configuration changes, and administrative
+    actions for compliance monitoring.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Audit Logs
@@ -123,48 +104,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-audit-logs-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-authentication-configuration-api
   name: Workday Security Authentication Configuration API
-  description: >-
-    Manage authentication policies and configurations including SSO, SAML, and multi-factor authentication
-    settings.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Manage authentication policies and configurations including SSO, SAML, and multi-factor
+    authentication settings.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Authentication Configuration
@@ -172,48 +139,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-authentication-configuration-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-compliance-reports-api
   name: Workday Security Compliance Reports API
-  description: >-
-    Generate and retrieve compliance reports summarizing audit activity, policy adherence, and regulatory
-    compliance status.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Generate and retrieve compliance reports summarizing audit activity, policy adherence,
+    and regulatory compliance status.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Compliance Reports
@@ -221,48 +174,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-compliance-reports-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-domain-security-policies-api
   name: Workday Security Domain Security Policies API
-  description: >-
-    Manage domain security policies that define which security groups have access to specific Workday
-    functional domains and the permission levels granted.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Manage domain security policies that define which security groups have access to specific
+    Workday functional domains and the permission levels granted.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Domain Security Policies
@@ -270,47 +209,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-domain-security-policies-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-oauth-tokens-api
   name: Workday Security OAuth Tokens API
-  description: >-
-    Obtain and manage OAuth 2.0 access tokens for authenticating REST API requests to Workday services.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Obtain and manage OAuth 2.0 access tokens for authenticating REST API requests to Workday
+    services.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - OAuth Tokens
@@ -318,48 +244,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-oauth-tokens-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-security-audit-api
-  name: Workday Security Security Audit API
-  description: >-
-    Access security-specific audit records including permission changes, security group modifications,
+  name: Workday Security Audit API
+  description: Access security-specific audit records including permission changes, security group modifications,
     and access control events.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Security Audit
@@ -367,46 +279,33 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-security-audit-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-security-group-members-api
-  name: Workday Security Security Group Members API
+  name: Workday Security Group Members API
   description: Manage the membership of users and integration system users within security groups.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Security Group Members
@@ -414,48 +313,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-security-group-members-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-security-groups-api
-  name: Workday Security Security Groups API
-  description: >-
-    Create, retrieve, and manage security groups that control access to Workday domains, business processes,
-    and securable items.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  name: Workday Security Groups API
+  description: Create, retrieve, and manage security groups that control access to Workday domains, business
+    processes, and securable items.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Security Groups
@@ -463,47 +348,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-security-groups-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-sessions-api
   name: Workday Security Sessions API
-  description: >-
-    Retrieve and manage active authentication sessions including signon history and session metadata.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Retrieve and manage active authentication sessions including signon history and session
+    metadata.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Sessions
@@ -511,48 +383,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-sessions-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-unidentified-signons-api
   name: Workday Security Unidentified Signons API
-  description: >-
-    Retrieve and monitor unidentified signon attempts where the provided username does not correspond
-    to a valid Workday account. Used for detecting potential unauthorized access attempts.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Retrieve and monitor unidentified signon attempts where the provided username does not
+    correspond to a valid Workday account. Used for detecting potential unauthorized access attempts.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - Unidentified Signons
@@ -560,47 +418,34 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-unidentified-signons-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+    url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 - aid: workday-security:workday-security-user-accounts-api
   name: Workday Security User Accounts API
-  description: >-
-    Manage Workday user accounts including account status, credentials, and associated security configurations.
-  humanURL: >-
-    https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+  description: Manage Workday user accounts including account status, credentials, and associated security
+    configurations.
+  humanURL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   baseURL: https://wd2-impl-services1.workday.com/ccx/service/
   tags:
   - User Accounts
@@ -608,104 +453,92 @@ apis:
   - type: OpenAPI
     url: openapi/workday-security-user-accounts-api-openapi.yml
   - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.html
   - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
-  - type: Authentication
-    url: >-
-      https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
-  - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
-  - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
-  - type: Reference
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
-  - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
-  - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
-  - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
-  - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
-  - type: Documentation
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
-  - type: WSDL
-    url: >-
-      https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
-common:
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/workday-security/overview
-  - type: AgenticAccess
-    url: agentic-access/workday-security-agentic-access.yml
-  - type: TrustCenter
-    url: security/workday-security-trust-center.yml
-  - type: DomainSecurity
-    url: security/workday-security-domain-security.yml
-  - type: Authentication
-    url: authentication/workday-security-authentication.yml
-  - type: OAuthScopes
-    url: scopes/workday-security-scopes.yml
-  - type: Portal
-    url: https://community.workday.com
-  - type: GettingStarted
-    url: https://community.workday.com/articles/1317963
-  - type: Authentication Guide
-    url: https://community.workday.com/articles/1311418
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Authentication.wsdl
   - type: Authentication
     url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
-  - type: Best Practices
-    url: https://community.workday.com/articles/security-best-practices
   - type: Documentation
-    url: https://community.workday.com/api
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.html
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Identity_Management.wsdl
   - type: Reference
-    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
-  - type: RateLimits
-    url: https://community.workday.com/articles/api-rate-limits
-  - type: StatusPage
-    url: https://status.workday.com
-  - type: Support
-    url: https://www.workday.com/en-us/customer-experience/support.html
-  - type: Website
-    url: https://www.workday.com
-  - type: TermsOfService
-    url: https://www.workday.com/en-us/legal.html
-  - type: PrivacyPolicy
-    url: https://www.workday.com/en-us/privacy.html
-  - type: Security
-    url: https://www.workday.com/en-us/why-workday/trust/security.html
-  - type: Compliance
-    url: https://www.workday.com/en-us/why-workday/trust/compliance.html
-  - type: Blog
-    url: https://blog.workday.com/en-us/application-development.html
-  - type: GitHubOrganization
-    url: https://github.com/workday
-  - type: Signup
-    url: https://resourcecenter.workday.com/
-  - type: Login
-    url: https://www.myworkday.com
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Identity_Management/v45.2/Identity_Management.html
+  - type: Documentation
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.html
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Security_Groups.wsdl
+  - type: Documentation
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.html
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Audit.wsdl
+  - type: Documentation
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.html
+  - type: WSDL
+    url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
+common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/workday-security/overview
+- type: AgenticAccess
+  url: agentic-access/workday-security-agentic-access.yml
+- type: TrustCenter
+  url: security/workday-security-trust-center.yml
+- type: DomainSecurity
+  url: security/workday-security-domain-security.yml
+- type: Authentication
+  url: authentication/workday-security-authentication.yml
+- type: OAuthScopes
+  url: scopes/workday-security-scopes.yml
+- type: Portal
+  url: https://community.workday.com
+- type: GettingStarted
+  url: https://community.workday.com/articles/1317963
+- type: Authentication Guide
+  url: https://community.workday.com/articles/1311418
+- type: Authentication
+  url: https://doc.workday.com/admin-guide/en-us/workday-rest-api/workday-rest-api-authentication.html
+- type: Best Practices
+  url: https://community.workday.com/articles/security-best-practices
+- type: Documentation
+  url: https://community.workday.com/api
+- type: Reference
+  url: https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html
+- type: RateLimits
+  url: https://community.workday.com/articles/api-rate-limits
+- type: StatusPage
+  url: https://status.workday.com
+- type: Support
+  url: https://www.workday.com/en-us/customer-experience/support.html
+- type: Website
+  url: https://www.workday.com
+- type: TermsOfService
+  url: https://www.workday.com/en-us/legal.html
+- type: PrivacyPolicy
+  url: https://www.workday.com/en-us/privacy.html
+- type: Security
+  url: https://www.workday.com/en-us/why-workday/trust/security.html
+- type: Compliance
+  url: https://www.workday.com/en-us/why-workday/trust/compliance.html
+- type: Blog
+  url: https://blog.workday.com/en-us/application-development.html
+- type: GitHubOrganization
+  url: https://github.com/workday
+- type: Signup
+  url: https://resourcecenter.workday.com/
+- type: Login
+  url: https://www.myworkday.com
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-    url: https://apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+  url: https://apievangelist.com
 tags:
-  - Access Control
-  - Audit
-  - Authentication
-  - Compliance
-  - Enterprise
-  - Identity Management
-  - Privacy
-  - SAML
-  - Security
-  - SSO
+- Access Control
+- Audit
+- Authentication
+- Compliance
+- Enterprise
+- Identity Management
+- Privacy
+- SAML
+- Security
+- SSO
