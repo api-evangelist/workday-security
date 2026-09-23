@@ -1,36 +1,48 @@
 {
   "provider": "workday-security",
   "sources": [
-    "workday-security-account-signons-api-openapi.yml",
-    "workday-security-audit-logs-api-openapi.yml",
-    "workday-security-authentication-configuration-api-openapi.yml",
-    "workday-security-compliance-reports-api-openapi.yml",
-    "workday-security-domain-security-policies-api-openapi.yml",
-    "workday-security-oauth-tokens-api-openapi.yml",
-    "workday-security-security-audit-api-openapi.yml",
-    "workday-security-security-group-members-api-openapi.yml",
-    "workday-security-security-groups-api-openapi.yml",
-    "workday-security-sessions-api-openapi.yml",
-    "workday-security-unidentified-signons-api-openapi.yml",
-    "workday-security-user-accounts-api-openapi.yml"
+    "_original/workday-security-audit-openapi.yml",
+    "_original/workday-security-authentication-openapi.yml",
+    "_original/workday-security-identity-management-openapi.yml",
+    "_original/workday-security-security-groups-openapi.yml"
   ],
   "outputs": [
-    "workday-security-account-signons-api-openapi.yml",
     "workday-security-audit-logs-api-openapi.yml",
-    "workday-security-authentication-configuration-api-openapi.yml",
     "workday-security-compliance-reports-api-openapi.yml",
-    "workday-security-domain-security-policies-api-openapi.yml",
-    "workday-security-oauth-tokens-api-openapi.yml",
     "workday-security-security-audit-api-openapi.yml",
-    "workday-security-security-group-members-api-openapi.yml",
-    "workday-security-security-groups-api-openapi.yml",
+    "workday-security-authentication-configuration-api-openapi.yml",
+    "workday-security-oauth-tokens-api-openapi.yml",
     "workday-security-sessions-api-openapi.yml",
+    "workday-security-account-signons-api-openapi.yml",
     "workday-security-unidentified-signons-api-openapi.yml",
-    "workday-security-user-accounts-api-openapi.yml"
+    "workday-security-user-accounts-api-openapi.yml",
+    "workday-security-domain-security-policies-api-openapi.yml",
+    "workday-security-security-group-members-api-openapi.yml",
+    "workday-security-security-groups-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "workday-security-audit-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "workday-security-authentication-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "workday-security-identity-management-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "workday-security-security-groups-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "workday-security-account-signons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-audit-logs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-authentication-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-compliance-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-domain-security-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-oauth-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-security-audit-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-security-group-members-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-security-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-unidentified-signons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workday-security-user-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
