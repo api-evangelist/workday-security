@@ -76,24 +76,6 @@ paths:
         '403':
           description: Forbidden - insufficient permissions
 components:
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip for pagination
-      schema:
-        type: integer
-        default: 0
-        minimum: 0
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of results to return per page
-      schema:
-        type: integer
-        default: 20
-        minimum: 1
-        maximum: 100
   schemas:
     PermissionChange:
       type: object
@@ -157,6 +139,24 @@ components:
           - IntegrationSystemUser
           - System
           description: Type of account that performed the action
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return per page
+      schema:
+        type: integer
+        default: 20
+        minimum: 1
+        maximum: 100
   securitySchemes:
     bearerAuth:
       type: http
