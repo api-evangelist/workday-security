@@ -76,7 +76,42 @@ paths:
         '403':
           description: Forbidden - insufficient permissions
 components:
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return per page
+      schema:
+        type: integer
+        default: 20
+        minimum: 1
+        maximum: 100
   schemas:
+    ActorRef:
+      type: object
+      description: Reference to the actor who performed an audited action, which can be a user account or system process.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the actor
+        descriptor:
+          type: string
+          description: Display name of the actor
+        accountType:
+          type: string
+          enum:
+          - User
+          - IntegrationSystemUser
+          - System
+          description: Type of account that performed the action
     PermissionChange:
       type: object
       description: A record of a change to security permissions within the Workday tenant, including security group membership changes, domain security policy modifications, and role assignment updates.
@@ -122,41 +157,6 @@ components:
         description:
           type: string
           description: Human-readable description of the permission change
-    ActorRef:
-      type: object
-      description: Reference to the actor who performed an audited action, which can be a user account or system process.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the actor
-        descriptor:
-          type: string
-          description: Display name of the actor
-        accountType:
-          type: string
-          enum:
-          - User
-          - IntegrationSystemUser
-          - System
-          description: Type of account that performed the action
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip for pagination
-      schema:
-        type: integer
-        default: 0
-        minimum: 0
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of results to return per page
-      schema:
-        type: integer
-        default: 20
-        minimum: 1
-        maximum: 100
   securitySchemes:
     bearerAuth:
       type: http
