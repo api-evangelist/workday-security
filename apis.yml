@@ -477,6 +477,9 @@ apis:
   - type: WSDL
     url: https://community.workday.com/sites/default/files/file-hosting/productionapi/Security/v44.0/Privacy.wsdl
 common:
+- type: CapabilityMap
+  url: capabilities/workday-security-capability-edges.yml
+  name: Workday Security Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/workday-security/overview
 - type: AgenticAccess

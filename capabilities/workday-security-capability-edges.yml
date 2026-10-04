@@ -1,0 +1,87 @@
+slug: workday-security
+provider: Workday Security
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Domain Security Policies
+  spec_file: workday-security-domain-security-policies-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: '''Security groups control access to securable items within Workday domains''; schemas DomainSecurityPolicy,
+    PolicyPermission, SecurityGroupRef'
+  reason: Domain security policies and their permission assignments are authorisation constructs governing
+    access to Workday objects — squarely Identity & Access Management.
+- tag: Security Group Members
+  spec_file: workday-security-security-group-members-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: GET /securityGroups/{securityGroupId}/members listSecurityGroupMembers; schemas SecurityGroupMember,
+    AccountRef
+  reason: Membership of security groups determines user access rights — direct access-administration surface,
+    mapping to Identity & Access Management.
+- tag: Security Groups
+  spec_file: workday-security-security-groups-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: '''operations for creating, retrieving, and managing Integration System Security Groups, role-based
+    security groups''; GET /securityGroups listSecurityGroups'
+  reason: Role-based and integration security groups are the authorisation model controlling access to
+    Workday securable items, which is Identity & Access Management.
+- tag: User Accounts
+  spec_file: workday-security-user-accounts-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: GET /userAccounts 'List user accounts', GET /userAccounts/{accountId} 'Get a specific user
+    account'; schemas UserAccount, WorkerRef; description 'managing user account credentials'
+  reason: Operations read and administer platform user accounts and credentials linked to workers, which
+    is identity and access administration rather than an HR record capability.
+- tag: Authentication Configuration
+  spec_file: workday-security-authentication-configuration-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: GET /api/v1/{tenant}/authenticationPolicies listAuthenticationPolicies; schema AuthenticationPolicy
+  reason: Retrieval of authentication policies (SSO/authentication method configuration) is identity and
+    access management configuration, not mere API auth plumbing — the operation manages policy objects
+    rather than issuing credentials.
+- tag: Account Signons
+  spec_file: workday-security-account-signons-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: '''tracking authenticated signon activity, identifying unauthorized authentication attempts,
+    and managing user account credentials''; GET /accountSignons listAccountSignons'
+  reason: Signon history and credential/account activity for Workday users is identity and access management
+    territory. Some ambiguity with threat detection (unauthorized attempts), so confidence is held below
+    0.8.
+- tag: Unidentified Signons
+  spec_file: workday-security-unidentified-signons-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: 'GET /unidentifiedSignons listUnidentifiedSignons ''List unidentified signon attempts''; description:
+    ''identifying unauthorized authentication attempts'''
+  reason: The operation surfaces unrecognised/unauthorised authentication attempts against the Workday
+    platform — a security monitoring surface. It sits between identity administration and threat detection,
+    so only the L1 Cybersecurity Management capability is asserted.
