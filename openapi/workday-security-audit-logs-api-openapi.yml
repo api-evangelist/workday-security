@@ -140,23 +140,6 @@ components:
         minimum: 1
         maximum: 100
   schemas:
-    TargetRef:
-      type: object
-      description: Reference to the target resource or object of an audited action.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the target resource
-        descriptor:
-          type: string
-          description: Display name of the target resource
-        href:
-          type: string
-          format: uri
-          description: API URL for the target resource
-        resourceType:
-          type: string
-          description: Type of the target resource
     ActorRef:
       type: object
       description: Reference to the actor who performed an audited action, which can be a user account or system process.
@@ -174,6 +157,16 @@ components:
           - IntegrationSystemUser
           - System
           description: Type of account that performed the action
+    Error:
+      type: object
+      description: Error response returned when an API request fails due to invalid parameters or business rule violations.
+      properties:
+        error:
+          type: string
+          description: Error code identifying the type of error
+        message:
+          type: string
+          description: Human-readable description of the error
     AuditLogEntry:
       type: object
       description: An audit log entry recording a system event, configuration change, or administrative action within the Workday tenant. Provides a complete record of the action, its context, and the outcome for compliance and security monitoring.
@@ -224,16 +217,23 @@ components:
           - Failure
           - Partial
           description: Outcome of the audited action
-    Error:
+    TargetRef:
       type: object
-      description: Error response returned when an API request fails due to invalid parameters or business rule violations.
+      description: Reference to the target resource or object of an audited action.
       properties:
-        error:
+        id:
           type: string
-          description: Error code identifying the type of error
-        message:
+          description: Unique identifier of the target resource
+        descriptor:
           type: string
-          description: Human-readable description of the error
+          description: Display name of the target resource
+        href:
+          type: string
+          format: uri
+          description: API URL for the target resource
+        resourceType:
+          type: string
+          description: Type of the target resource
   securitySchemes:
     bearerAuth:
       type: http

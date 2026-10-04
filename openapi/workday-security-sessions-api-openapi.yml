@@ -61,31 +61,6 @@ paths:
         '403':
           description: Forbidden - insufficient permissions
 components:
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip for pagination
-      schema:
-        type: integer
-        default: 0
-        minimum: 0
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of results to return per page
-      schema:
-        type: integer
-        default: 20
-        minimum: 1
-        maximum: 100
-    tenant:
-      name: tenant
-      in: path
-      required: true
-      description: Workday tenant identifier
-      schema:
-        type: string
   schemas:
     Session:
       type: object
@@ -136,6 +111,31 @@ components:
         multiFactorType:
           type: string
           description: Multi-factor authentication type used if applicable
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return per page
+      schema:
+        type: integer
+        default: 20
+        minimum: 1
+        maximum: 100
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+    tenant:
+      name: tenant
+      in: path
+      required: true
+      description: Workday tenant identifier
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

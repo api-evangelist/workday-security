@@ -106,7 +106,39 @@ paths:
         '404':
           description: Security group not found
 components:
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return per page
+      schema:
+        type: integer
+        default: 20
+        minimum: 1
+        maximum: 100
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
   schemas:
+    DomainSecurityPolicyRef:
+      type: object
+      description: Reference to a domain security policy
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the domain security policy
+        descriptor:
+          type: string
+          description: Display name of the domain security policy
+        href:
+          type: string
+          format: uri
+          description: API URL for the domain security policy resource
     SecurityGroup:
       type: object
       description: A security group that controls access to securable items within Workday domains and business processes. Security groups can be role-based, user-based, integration system-based, or derived from job or organizational criteria.
@@ -152,38 +184,6 @@ components:
           type: string
           format: date-time
           description: Timestamp when the security group was last modified
-    DomainSecurityPolicyRef:
-      type: object
-      description: Reference to a domain security policy
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the domain security policy
-        descriptor:
-          type: string
-          description: Display name of the domain security policy
-        href:
-          type: string
-          format: uri
-          description: API URL for the domain security policy resource
-  parameters:
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of results to return per page
-      schema:
-        type: integer
-        default: 20
-        minimum: 1
-        maximum: 100
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip for pagination
-      schema:
-        type: integer
-        default: 0
-        minimum: 0
   securitySchemes:
     bearerAuth:
       type: http

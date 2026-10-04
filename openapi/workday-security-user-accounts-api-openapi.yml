@@ -124,20 +124,6 @@ components:
         minimum: 1
         maximum: 100
   schemas:
-    WorkerRef:
-      type: object
-      description: Reference to a Workday worker associated with a user account
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the worker
-        descriptor:
-          type: string
-          description: Display name of the worker
-        href:
-          type: string
-          format: uri
-          description: API URL for the worker resource
     UserAccount:
       type: object
       description: A Workday user account representing a person or system that can authenticate to the Workday platform. Contains account credentials, status, and associated security configuration.
@@ -182,6 +168,20 @@ components:
           description: Whether multi-factor authentication is enabled for this account
         worker:
           $ref: '#/components/schemas/WorkerRef'
+    WorkerRef:
+      type: object
+      description: Reference to a Workday worker associated with a user account
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the worker
+        descriptor:
+          type: string
+          description: Display name of the worker
+        href:
+          type: string
+          format: uri
+          description: API URL for the worker resource
   securitySchemes:
     bearerAuth:
       type: http

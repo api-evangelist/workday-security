@@ -93,7 +93,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/OAuthError'
 components:
+  parameters:
+    tenant:
+      name: tenant
+      in: path
+      required: true
+      description: Workday tenant identifier
+      schema:
+        type: string
   schemas:
+    OAuthError:
+      type: object
+      description: Error response returned when an OAuth 2.0 token request fails due to invalid parameters, credentials, or an unsupported grant type.
+      properties:
+        error:
+          type: string
+          enum:
+          - invalid_request
+          - invalid_client
+          - invalid_grant
+          - unauthorized_client
+          - unsupported_grant_type
+          - invalid_scope
+          description: OAuth 2.0 error code
+        error_description:
+          type: string
+          description: Human-readable description of the error
     TokenResponse:
       type: object
       description: OAuth 2.0 token response containing the access token and associated metadata for authenticating subsequent API requests.
@@ -118,31 +143,6 @@ components:
         scope:
           type: string
           description: Space-delimited list of scopes granted to the access token
-    OAuthError:
-      type: object
-      description: Error response returned when an OAuth 2.0 token request fails due to invalid parameters, credentials, or an unsupported grant type.
-      properties:
-        error:
-          type: string
-          enum:
-          - invalid_request
-          - invalid_client
-          - invalid_grant
-          - unauthorized_client
-          - unsupported_grant_type
-          - invalid_scope
-          description: OAuth 2.0 error code
-        error_description:
-          type: string
-          description: Human-readable description of the error
-  parameters:
-    tenant:
-      name: tenant
-      in: path
-      required: true
-      description: Workday tenant identifier
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
