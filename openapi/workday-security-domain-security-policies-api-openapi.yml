@@ -110,31 +110,6 @@ components:
         minimum: 1
         maximum: 100
   schemas:
-    DomainSecurityPolicy:
-      type: object
-      description: A domain security policy that defines access permissions for a specific Workday functional domain. Specifies which security groups can view or modify resources within the domain.
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the domain security policy
-        descriptor:
-          type: string
-          description: Human-readable name of the domain security policy
-        domain:
-          type: string
-          description: The Workday functional domain this policy governs
-        description:
-          type: string
-          description: Detailed description of the policy and its scope
-        permissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyPermission'
-          description: List of permission assignments defining which security groups have access and at what level
-        lastModified:
-          type: string
-          format: date-time
-          description: Timestamp when the policy was last modified
     SecurityGroupRef:
       type: object
       description: Reference to a security group
@@ -163,6 +138,31 @@ components:
           - Get
           - Put
           description: Level of access granted to the security group for this domain
+    DomainSecurityPolicy:
+      type: object
+      description: A domain security policy that defines access permissions for a specific Workday functional domain. Specifies which security groups can view or modify resources within the domain.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the domain security policy
+        descriptor:
+          type: string
+          description: Human-readable name of the domain security policy
+        domain:
+          type: string
+          description: The Workday functional domain this policy governs
+        description:
+          type: string
+          description: Detailed description of the policy and its scope
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyPermission'
+          description: List of permission assignments defining which security groups have access and at what level
+        lastModified:
+          type: string
+          format: date-time
+          description: Timestamp when the policy was last modified
   securitySchemes:
     bearerAuth:
       type: http

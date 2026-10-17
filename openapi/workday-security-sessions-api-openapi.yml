@@ -112,6 +112,13 @@ components:
           type: string
           description: Multi-factor authentication type used if applicable
   parameters:
+    tenant:
+      name: tenant
+      in: path
+      required: true
+      description: Workday tenant identifier
+      schema:
+        type: string
     limit:
       name: limit
       in: query
@@ -129,13 +136,6 @@ components:
         type: integer
         default: 0
         minimum: 0
-    tenant:
-      name: tenant
-      in: path
-      required: true
-      description: Workday tenant identifier
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

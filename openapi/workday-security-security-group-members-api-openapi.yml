@@ -63,6 +63,20 @@ paths:
           description: Security group not found
 components:
   schemas:
+    AccountRef:
+      type: object
+      description: Reference to a Workday user account
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the user account
+        descriptor:
+          type: string
+          description: Display name of the user account
+        href:
+          type: string
+          format: uri
+          description: API URL for the user account resource
     SecurityGroupMember:
       type: object
       description: A member of a security group, which can be a user account or an integration system user that has been assigned to the group.
@@ -79,21 +93,15 @@ components:
         assignedBy:
           type: string
           description: The account that assigned this member to the group
-    AccountRef:
-      type: object
-      description: Reference to a Workday user account
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the user account
-        descriptor:
-          type: string
-          description: Display name of the user account
-        href:
-          type: string
-          format: uri
-          description: API URL for the user account resource
   parameters:
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip for pagination
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
     limit:
       name: limit
       in: query
@@ -103,14 +111,6 @@ components:
         default: 20
         minimum: 1
         maximum: 100
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip for pagination
-      schema:
-        type: integer
-        default: 0
-        minimum: 0
   securitySchemes:
     bearerAuth:
       type: http
